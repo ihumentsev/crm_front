@@ -1,16 +1,19 @@
-import { Header } from 'components/Header/Header';
+import { SideBar } from 'components/Header/SideBar';
 import { Outlet } from 'react-router-dom';
-import css from '../Layout/Layout.module.css';
+import { ContentWraper, MainBox } from './Layout.styled';
+import Container from 'components/Container/Container';
 
 export default function Layout() {
   return (
     <>
-      <Header />
-      <main className={css.main_content}>
-        <div className={css.container}>
+      {/* <Container> */}
+      <ContentWraper>
+        <SideBar />
+        <MainBox >
           <Outlet />
-        </div>
-      </main>
+        </MainBox>
+      </ContentWraper>
+      {/* </Container> */}
     </>
   );
 }

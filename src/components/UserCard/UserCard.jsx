@@ -1,5 +1,5 @@
 import css from '../UserCard/UserCard.module.css';
-import noImage from '../../images/picture2 1.png';
+import noImage from '../../images/picture.png';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteFollow, followUser } from 'redux/slices/users';
