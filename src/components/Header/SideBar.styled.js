@@ -103,9 +103,11 @@ const PageLink = styled(NavLink)`
   font-weight: 500;
   line-height: normal;
   letter-spacing: 0.13px;
-
   text-decoration: none;
   &:hover {
+    color: var(--main-accent-blue, #109cf1);
+  }
+  &.active {
     color: var(--main-accent-blue, #109cf1);
   }
 `;

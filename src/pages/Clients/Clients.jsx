@@ -2,27 +2,31 @@
 // import { useNavigate } from 'react-router-dom';
 // import Btn from 'components/Btn/Btn';
 import OrderItem from 'components/OrderItem/OrderItem';
-import { BtnWraper, ContentBox } from './Orders.styled';
+import {
+  BtnWraper,
+  ContentBox,
+} from './Clients.styled';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 
-export default function Orders() {
+export default function Clients() {
   const [orders, setOrders] = useState([]);
-  console.log(orders);
+  
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:4444/orders');
-        setOrders(response.data);
-      } catch (error) {
-        console.error('Ошибка при получении данных', error);
-      }
-    };
+   const fetchData = async () => {
+     try {
+       const response = await axios.get('http://localhost:4444/orders');
+       setOrders(response.data);
+     } catch (error) {
+       console.error('Ошибка при получении данных', error);
+     }
+   };
 
-    fetchData();
+   fetchData();
   }, []);
+
 
   // const navigate = useNavigate();
 
@@ -34,8 +38,8 @@ export default function Orders() {
   return (
     <>
       <BtnWraper>
-        <div>Замовлення</div>
-        <button className="btn">Нове замовлення</button>
+        <div>Клієнти</div>
+        <button className="btn">Новий клієнт</button>
       </BtnWraper>
       <ContentBox>
         <ul className="list-header">
@@ -44,13 +48,13 @@ export default function Orders() {
             <input className="check-header" type="checkbox" id="all" />
           </li>
 
-          <li className="item-header">№ замовлення</li>
-          <li className="item-header">Замовник</li>
-          <li className="item-header">Джерело</li>
+          <li className="item-header">ФІО</li>
+          <li className="item-header">Email</li>
+          <li className="item-header">Телефон</li>
+          <li className="item-header">Компанія</li>
+          <li className="item-header">Кількість замовлень</li>
+          <li className="item-header">Останнє замовлення</li>
           <li className="item-header">Створено</li>
-          <li className="item-header">Статус</li>
-          <li className="item-header">Продукція</li>
-          <li className="item-header">Вартість</li>
           <li className="item-header">Менеджер</li>
         </ul>
 

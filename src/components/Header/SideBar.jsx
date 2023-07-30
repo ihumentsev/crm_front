@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { NavWraper, PageLink, SideBarBox } from './SideBar.styled';
 
 export const SideBar = () => {
@@ -6,9 +7,6 @@ export const SideBar = () => {
 
   // const filterHandler = e => {
   //   setFilter(e.target.value);
-  // };
-  // const setActiveLink = ({ isActive }) => {
-  //   return !isActive ? css.navLink : `${css.navLink} ${css.active}`;
   // };
 
   // useEffect(() => {
