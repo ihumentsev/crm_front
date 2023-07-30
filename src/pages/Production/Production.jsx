@@ -1,7 +1,6 @@
 // import css from '../Home/Home.module.css';
 // import { useNavigate } from 'react-router-dom';
 // import Btn from 'components/Btn/Btn';
-import OrderItem from 'components/OrderItem/OrderItem';
 import { BtnWraper, ContentBox } from './Production.styled';
 import { useState } from 'react';
 import { useEffect } from 'react';

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import { NavWraper, PageLink, SideBarBox } from './SideBar.styled';
 
 export const SideBar = () => {

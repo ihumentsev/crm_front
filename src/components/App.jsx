@@ -3,7 +3,6 @@ import { lazy, Suspense } from 'react';
 import Clients from 'pages/Clients/Clients';
 import Production from 'pages/Production/Production';
 const Orders = lazy(() => import('pages/Home/Orders'));
-const Tweets = lazy(() => import('pages/Tweets/Tweets'));
 const Layout = lazy(() => import('./Layout/Layout'));
 
 export const App = () => {
