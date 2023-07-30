@@ -2,7 +2,7 @@
   "name": "crm_front",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ihumentsev.github.io/crm/",
+  "homepage": "https://ihumentsev.github.io/crm_front/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.3",
