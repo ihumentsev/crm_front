@@ -14,7 +14,7 @@ console.log(developProducts);
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:4444/products?status=на виробництво'
+          'https://back-crm-fb781da88f45.herokuapp.com/products?status=на виробництво'
         );
         setDevelopProducts(response.data);
       } catch (error) {
@@ -46,13 +46,14 @@ console.log(developProducts);
           </li>
           <li className="item-header">№ в-ва</li>
           <li className="item-header">Створено</li>
-          {/* <li className="item-header">Макет</li> */}
+          <li className="item-header">№ замовлення</li>
           <li className="item-header">Товар</li>
           <li className="item-header">Опис</li>
           <li className="item-header">Кількість</li>
-          <li className="item-header">№ замовлення</li>
+          <li className="item-header">Статус</li>
           <li className="item-header">Замовник</li>
           <li className="item-header">Менеджер</li>
+          <li className="item-header">Пріорітет</li>
           {/* <li className="item-header">Статус</li> */}
           {/* <li className="item-header">Вартість</li>
           <li className="item-header">Менеджер</li> */}

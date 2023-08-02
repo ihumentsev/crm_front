@@ -12,7 +12,7 @@ const ItemBox = styled.li`
   margin-bottom: 10px;
   overflow: hidden;
   box-sizing: border-box;
-  border: 2px solid #fff;
+  /* border: 2px solid #fff; */
 
   /* padding-bottom: 20px; */
   & p {
@@ -20,11 +20,13 @@ const ItemBox = styled.li`
     margin: 0;
   }
   & .column-wraper {
-    width: 150px;
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 40px;
     display: flex;
     align-items: center;
     margin-right: 5px;
-    padding: 10px;
+    padding: 0 10px;
   }
   & .status {
     background-color: #2ed47a;
@@ -40,16 +42,16 @@ const ItemBox = styled.li`
   }
   & .visible-box {
     width: 100%;
-    height: 60px;
+    min-height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* margin-bottom: 30px; */
+    margin-bottom: 30px;
     box-sizing: border-box;
   }
-  /* & .active {
+  & .active {
     background: #109cf1;
-  } */
+  }
 
   & .check-item {
     width: 16px;
@@ -60,15 +62,15 @@ const ItemBox = styled.li`
   & label {
     color: var(--text-help-gray, #818e9b);
     font-family: Poppins;
-    font-size: 11px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     letter-spacing: 0.11px;
   }
   & select {
-    width: 252px;
-    height: 25px;
+    width: 160px;
+    height: 20px;
     border: none;
     border-bottom: solid 1px #d3d8dd;
     font-size: 13px;
@@ -76,7 +78,7 @@ const ItemBox = styled.li`
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.13px;
-    margin-top: 5px;
+    margin-left: 10px;
   }
   &.active {
     height: auto;
@@ -89,31 +91,41 @@ const OptionsBox = styled.div`
   padding: 10px;
   & .wraper {
     display: flex;
+    width: 100%;
+    padding: 0 20px;
     flex-direction: column;
+    border-right: 1px solid #109cf1;
+    &:last-child {
+      border-right: none;
+    }
   }
   & .input-wraper {
     display: flex;
     flex-direction: row;
+    /* align-items: center; */
+    /* justify-content: space-between; */
     margin-bottom: 10px;
-    & button {
-      margin-top: 20px;
-      width: 160px;
-      height: 42px;
-      border-radius: 4px;
-      border: 1px solid #109cf1;
-      background-color: #fff;
-      color: #109cf1;
-      text-align: center;
+    /* width: 250px; */
+
+    & p {
+      color: var(--text-help-gray, #818e9b);
       font-family: Poppins;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: 0.11px;
+    }
+    & div {
+      width: 160px;
+      height: 20px;
+      border-bottom: solid 1px #d3d8dd;
       font-size: 13px;
       font-style: normal;
-      font-weight: 600;
+      font-weight: 400;
       line-height: normal;
       letter-spacing: 0.13px;
-      &:hover {
-        border: 1px solid #34aff9;
-        color: #34aff9;
-      }
+      margin-left: 10px;
     }
   }
 `;

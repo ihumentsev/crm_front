@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import css from '../Tweets/Tweets.module.css';
 import UserCard from 'components/UserCard/UserCard';
-import Btn from 'components/Btn/Btn';
+import Btn from 'components/Btn/BlueBtn';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from 'redux/operations/users';
 import { filtering, getTweets, isFollowUsers } from 'redux/selectors';

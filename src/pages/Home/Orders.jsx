@@ -14,7 +14,9 @@ export default function Orders() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:4444/orders');
+        const response = await axios.get(
+          'https://back-crm-fb781da88f45.herokuapp.com/orders'
+        );
         setOrders(response.data);
       } catch (error) {
         console.error('Ошибка при получении данных', error);

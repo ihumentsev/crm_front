@@ -45,7 +45,8 @@ const ContentBox = styled.div`
     margin-bottom: 20px;
   }
   & .item-header {
-    width: 150px;
+    min-width: 100px;
+    max-width: 100px;
     padding: 0 10px;
     display: flex;
     align-items: center;

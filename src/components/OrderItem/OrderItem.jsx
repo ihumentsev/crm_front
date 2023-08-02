@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { ItemBox, OptionsBox, OrderBox, PayBox } from './OrderItem.styled';
+import BlueBtn from 'components/Btn/BlueBtn';
+import WhiteBtn from 'components/Btn/WhiteBtn';
+import TextBtn from 'components/Btn/TextBtn';
 
 export default function OrderItem({ order }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -114,7 +117,12 @@ export default function OrderItem({ order }) {
               <p>Коментар:</p>
               <div></div>
             </div>
-            <button>Додати коментар</button>
+            <div className="input-wraper">
+              <WhiteBtn
+                text="Додати коментар"
+                handler={() => console.log('btn')}
+              ></WhiteBtn>
+            </div>
           </div>
           <div className="wraper">
             <div className="input-wraper">
@@ -124,7 +132,30 @@ export default function OrderItem({ order }) {
                 <option>Нова Почта</option>
                 <option>Самовивіз</option>
               </select>
-              <button>Додати ТТН</button>
+            </div>
+            <div className="input-wraper">
+              <p>Одержувач:</p>
+              <div> Игуменцев Андрій +15552341234</div>
+            </div>
+            <div className="input-wraper">
+              <p>Адреса доставки:</p>
+              <div> Kiev</div>
+            </div>
+            <div className="input-wraper">
+              <p>Витрати:</p>
+              <div> 150.00</div>
+            </div>
+            <div className="input-wraper">
+              <p>Дата доставки / відправки:</p>
+              <div>21.12.2021 14:44</div>
+            </div>
+            <div className="input-wraper">
+              <p>Трекінг код:</p>
+              <div>530005665555556</div>
+            </div>
+
+            <div className="input-wraper">
+              <WhiteBtn text="Додати ТТН"></WhiteBtn>
             </div>
           </div>
         </OptionsBox>
@@ -134,7 +165,7 @@ export default function OrderItem({ order }) {
               <p>Продукція</p>
             </div>
             <div className="btn-wraper">
-              <button>Додати</button>
+              <BlueBtn text="Додати"></BlueBtn>
             </div>
           </div>
           <div>
@@ -183,7 +214,7 @@ export default function OrderItem({ order }) {
                 <p>Оплати</p>
               </div>
               <div className="btn-wraper">
-                <button>Додати оплату</button>
+                <BlueBtn text="Додати оплату"></BlueBtn>
               </div>
             </div>
             <div>

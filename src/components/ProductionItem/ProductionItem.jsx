@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ItemBox, OptionsBox, OrderBox, PayBox } from './ProductionItem.styled';
+import { ItemBox, OptionsBox } from './ProductionItem.styled';
+import WhiteBtn from 'components/Btn/WhiteBtn';
 
 export default function ProductionItem({ order }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,12 +20,9 @@ export default function ProductionItem({ order }) {
             <input className="check-item" type="checkbox" />
           </div>
 
-          <div className="column-wraper">
-            <p>#{order.id}</p>
-          </div>
-          <div className="column-wraper">
-            <p>{order.created_at}</p>
-          </div>
+          <div className="column-wraper">#{order.id}</div>
+          <div className="column-wraper">{order.created_at}</div>
+          <div className="column-wraper">{order.order_id}</div>
           <div className="column-wraper">
             <p>{order.product_name}</p>
           </div>
@@ -35,16 +33,16 @@ export default function ProductionItem({ order }) {
             <p> {order.quantity}</p>
           </div>
           <div className="column-wraper status">
-            <p>{order.order_id}</p>
+            <p>{order.status_develop}</p>
           </div>
           <div className="column-wraper">
-            <p>{order.product_name}</p>
+            <p>ТОВ "Рога та Копита"</p>
           </div>
           <div className="column-wraper">
-            <p>{order.total_price} грн </p>
+            <p>Черенок Костянтин</p>
           </div>
           <div className="column-wraper">
-            <p>{order.image_url} </p>
+            <p>Терміново</p>
           </div>
         </div>
         <OptionsBox>
@@ -60,10 +58,21 @@ export default function ProductionItem({ order }) {
               <label>Статус</label>
               <select>
                 <option>На виробництві</option>
+                <option>Друкується</option>
                 <option>Виготовленно</option>
-                <option>Відвантажено</option>
                 <option>Передано на доставку</option>
               </select>
+            </div>
+            <div className="input-wraper">
+              <p>Завантажити макет</p>
+              <div>
+                <a
+                  href="https://back-crm-fb781da88f45.herokuapp.com/uploads/штендер_back.tif"
+                  download=""
+                >
+                  <p>макет</p>
+                </a>
+              </div>
             </div>
           </div>
           <div className="wraper">
@@ -75,8 +84,14 @@ export default function ProductionItem({ order }) {
               </select>
             </div>
             <div className="input-wraper">
-              Коментар
-              <button>Додати коментар</button>
+              <p>Коментар</p>
+              <div></div>
+            </div>
+            <div className="input-wraper">
+              <WhiteBtn
+                text="Додати коментар"
+                handler={() => console.log('btn')}
+              />
             </div>
           </div>
           <div className="wraper">
@@ -87,11 +102,13 @@ export default function ProductionItem({ order }) {
                 <option>Нова Почта</option>
                 <option>Самовивіз</option>
               </select>
-              <button>Додати ТТН</button>
+            </div>
+            <div className="input-wraper">
+              <WhiteBtn text="Додати ТТН" handler={() => console.log('btn')} />
             </div>
           </div>
         </OptionsBox>
-        <OrderBox>
+        {/* <OrderBox>
           <div className="section-title">
             <div className="text-wraper">
               <p>Продукція</p>
@@ -117,7 +134,7 @@ export default function ProductionItem({ order }) {
           </div>
           <div>
             <ul className="item-list">
-              {/* {order.products.map(product => (
+              {order.products.map(product => (
                 <li key={product.id}>
                   <span className="item-wraper">#{product.id}</span>
                   <span className="item-wraper">{product.product_name}</span>
@@ -135,11 +152,11 @@ export default function ProductionItem({ order }) {
                   <span className="item-wraper">- </span>
                   <span className="item-wraper">{product.total_price} грн</span>
                 </li>
-              ))} */}
+              ))}
             </ul>
           </div>
-        </OrderBox>
-        <PayBox>
+        </OrderBox> */}
+        {/* <PayBox>
           <div>
             <div className="section-title">
               <div className="text-wraper">
@@ -160,7 +177,7 @@ export default function ProductionItem({ order }) {
             </div>
             <div>
               <ul className="item-list">
-                {/* {order.payments.map(item => (
+                {order.payments.map(item => (
                   <li key={item.payment_id}>
                     <span className="item-wraper">{item.payment_date}</span>
                     <span className="item-wraper">{item.payment_method}</span>
@@ -170,7 +187,7 @@ export default function ProductionItem({ order }) {
                     <span className="item-wraper">Пердплата</span>
                     <span className="item-wraper">{item.payment_status}</span>
                   </li>
-                ))} */}
+                ))}
               </ul>
             </div>
           </div>
@@ -188,7 +205,7 @@ export default function ProductionItem({ order }) {
               <p>{order.total_amount} грн.</p>
             </div>
           </div>
-        </PayBox>
+        </PayBox> */}
       </ItemBox>
     </>
   );
