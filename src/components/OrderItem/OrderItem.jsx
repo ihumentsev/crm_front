@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ItemBox, OptionsBox, OrderBox, PayBox } from './OrderItem.styled';
 import BlueBtn from 'components/Btn/BlueBtn';
 import WhiteBtn from 'components/Btn/WhiteBtn';
-import TextBtn from 'components/Btn/TextBtn';
+
 
 export default function OrderItem({ order }) {
   const [isOpen, setIsOpen] = useState(false);
