@@ -1,27 +1,29 @@
 {
   "files": {
-    "main.css": "/crm_front/static/css/main.82e879d1.css",
-    "main.js": "/crm_front/static/js/main.fc036030.js",
-    "static/js/117.00612379.chunk.js": "/crm_front/static/js/117.00612379.chunk.js",
-    "static/js/983.c98ea638.chunk.js": "/crm_front/static/js/983.c98ea638.chunk.js",
+    "main.css": "/crm_front/static/css/main.768bb9ce.css",
+    "main.js": "/crm_front/static/js/main.3ac8e6ba.js",
+    "static/js/473.e2a6fccf.chunk.js": "/crm_front/static/js/473.e2a6fccf.chunk.js",
+    "static/js/11.56c14ad5.chunk.js": "/crm_front/static/js/11.56c14ad5.chunk.js",
+    "static/media/Poppins-Medium.ttf": "/crm_front/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
     "static/media/Montserrat-SemiBold.ttf": "/crm_front/static/media/Montserrat-SemiBold.62b8eee010e3957d425f.ttf",
     "static/media/Montserrat-Medium.ttf": "/crm_front/static/media/Montserrat-Medium.a281f04d4c8926e7dea1.ttf",
+    "static/media/money.svg": "/crm_front/static/media/money.07a6282156b39bbd57632d187203896f.svg",
     "static/media/dashboard.svg": "/crm_front/static/media/dashboard.6fd0f9a6edddc91a2269d47032164b47.svg",
     "index.html": "/crm_front/index.html",
     "static/media/settings.svg": "/crm_front/static/media/settings.c313ca9ca16fadb1b09d5dd8c829cfcf.svg",
-    "static/media/contacts-active.svg": "/crm_front/static/media/contacts-active.c5a2cf8bb650328d89ef1f1426fd86b8.svg",
+    "static/media/contacts-active.svg": "/crm_front/static/media/contacts-active.3cf0e79a4644bdeffa8612bf60261738.svg",
     "static/media/tasks.svg": "/crm_front/static/media/tasks.7a1c62dace501d2ad6ad45e0555cdd4e.svg",
     "static/media/deals.svg": "/crm_front/static/media/deals.25d26f98e5082d894f93552be98a6654.svg",
     "static/media/email.svg": "/crm_front/static/media/email.6b9a16dde1754cb290ce9522847936fb.svg",
     "static/media/chat.svg": "/crm_front/static/media/chat.5cfe697fcfb5f11ad6e8db57aa5a69ef.svg",
     "static/media/Polygon.svg": "/crm_front/static/media/Polygon.aa9748770926bb9193a54868caae934b.svg",
-    "main.82e879d1.css.map": "/crm_front/static/css/main.82e879d1.css.map",
-    "main.fc036030.js.map": "/crm_front/static/js/main.fc036030.js.map",
-    "117.00612379.chunk.js.map": "/crm_front/static/js/117.00612379.chunk.js.map",
-    "983.c98ea638.chunk.js.map": "/crm_front/static/js/983.c98ea638.chunk.js.map"
+    "main.768bb9ce.css.map": "/crm_front/static/css/main.768bb9ce.css.map",
+    "main.3ac8e6ba.js.map": "/crm_front/static/js/main.3ac8e6ba.js.map",
+    "473.e2a6fccf.chunk.js.map": "/crm_front/static/js/473.e2a6fccf.chunk.js.map",
+    "11.56c14ad5.chunk.js.map": "/crm_front/static/js/11.56c14ad5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.82e879d1.css",
-    "static/js/main.fc036030.js"
+    "static/css/main.768bb9ce.css",
+    "static/js/main.3ac8e6ba.js"
   ]
 }
