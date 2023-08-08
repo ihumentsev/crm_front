@@ -27,7 +27,7 @@
 // const SalesChart = () => {
 //   const [orders, setOrders] = useState([]);
 //   const [selectedMonth, setSelectedMonth] = useState(new Date());
-  
+
 //   const startOfMonthDate = startOfMonth(selectedMonth);
 //   const endOfMonthDate = endOfMonth(selectedMonth);
 
@@ -128,7 +128,7 @@
 
 // export default SalesChart;
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import {
@@ -164,7 +164,7 @@ ChartJS.register(
 const SalesChart = ({ orders }) => {
   // const [orders, setOrders] = useState([]);
   const [selectedMonth, setSelectedMonth] = useState(new Date());
-  const [planSales, setPlanSales] = useState(350000);
+  const [planSales] = useState(350000);
 
   const startOfMonthDate = startOfMonth(selectedMonth);
   const endOfMonthDate = endOfMonth(selectedMonth);
@@ -218,19 +218,9 @@ const SalesChart = ({ orders }) => {
     ],
   };
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         'https://back-crm-fb781da88f45.herokuapp.com/orders'
-  //       );
-  //       setOrders(response.data);
-  //     } catch (error) {
-  //       console.error('Ошибка при получении данных', error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
+  // const handler = () => {
+  //   setPlanSales();
+  // }
 
   const totalPercentCompletion =
     (actualSalesArray[actualSalesArray.length - 1] /
@@ -284,4 +274,3 @@ const SalesChart = ({ orders }) => {
 };
 
 export default SalesChart;
-

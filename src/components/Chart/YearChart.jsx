@@ -11,7 +11,7 @@ ChartJS.register(ArcElement, Tooltip, Legend, Title);
 const YearChart = () => {
   const [orders, setOrders] = useState([]);
   const [selectedYear, setSelectedYear] = useState(new Date());
-  const [annualTarget, setAnnualTarget] = useState(4200000); // Установленный план на год
+  const [annualTarget] = useState(4200000); // Установленный план на год
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,13 +53,13 @@ const YearChart = () => {
   };
 
   //   Обработка данных для выполнения плана за год
-  const targetSalesForYear = orders.reduce((total, order) => {
-    const orderYear = new Date(order.createdAt).getFullYear();
-    if (orderYear === selectedYear.getFullYear()) {
-      return total + order.total_amount;
-    }
-    return total;
-  }, 0);
+  // const targetSalesForYear = orders.reduce((total, order) => {
+  //   const orderYear = new Date(order.createdAt).getFullYear();
+  //   if (orderYear === selectedYear.getFullYear()) {
+  //     return total + order.total_amount;
+  //   }
+  //   return total;
+  // }, 0);
 
   const actualSalesForYear = orders.reduce((total, order) => {
     const orderYear = new Date(order.createdAt).getFullYear();

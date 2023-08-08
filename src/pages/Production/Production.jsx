@@ -1,7 +1,7 @@
 // import css from '../Home/Home.module.css';
 // import { useNavigate } from 'react-router-dom';
 // import Btn from 'components/Btn/Btn';
-import { BtnWraper, ContentBox } from './Production.styled';
+import {  ContentBox } from './Production.styled';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';

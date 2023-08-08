@@ -3,7 +3,6 @@ import { lazy, Suspense } from 'react';
 import Clients from 'pages/Clients/Clients';
 import Production from 'pages/Production/Production';
 import Dashboard from 'pages/Dashboard/Dashboard';
-import Header from './Header/Header';
 import Analitics from 'pages/Analitics/Analitics';
 import Chat from 'pages/Chat/Chat';
 const Orders = lazy(() => import('pages/Home/Orders'));
