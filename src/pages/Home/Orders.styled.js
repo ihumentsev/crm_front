@@ -41,7 +41,7 @@ const ContentBox = styled.div`
     list-style: none;
     padding: 0;
     margin: 0;
-    min-width: 970px;
+    min-width: 1120px;
     margin-bottom: 20px;
   }
   & .item-header {
@@ -50,6 +50,12 @@ const ContentBox = styled.div`
     display: flex;
     align-items: center;
     margin-right: 5px;
+    color: #334d6e;
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.13px;
     & .check-header {
       width: 16px;
       height: 16px;
@@ -60,7 +66,8 @@ const ContentBox = styled.div`
   & .order-list {
     padding: 0;
     margin: 0;
-    min-width: 970px;
+    /* min-width: 970px; */
+    min-width: 1120px;
   }
 `;
 

@@ -12,6 +12,7 @@ const ContentWraper = styled.div`
   display: flex;
   /* background: red; */
   height: 100vh;
+  /* max-width: 1900px; */
 
   /* & .right-box {
     width: 100%;

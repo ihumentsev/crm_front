@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import ProductionItem from 'components/ProductionItem/ProductionItem';
+import Header from 'components/Header/Header';
 
 export default function Production() {
   const [developProducts, setDevelopProducts] = useState([]);
@@ -34,10 +35,11 @@ console.log(developProducts);
 
   return (
     <>
-      <BtnWraper>
-        <div>Виробництво</div>
-        {/* <button className="btn">Нове замовлення</button> */}
-      </BtnWraper>
+      <Header
+        textHead="Виробництво"
+        textBtn="Створити нову задачу"
+        handler={() => console.log('btn')}
+      />
       <ContentBox>
         <ul className="list-header">
           <li className="item-header">
@@ -52,7 +54,7 @@ console.log(developProducts);
           <li className="item-header">Кількість</li>
           <li className="item-header">Статус</li>
           <li className="item-header">Замовник</li>
-          <li className="item-header">Менеджер</li>
+          {/* <li className="item-header">Менеджер</li> */}
           <li className="item-header">Пріорітет</li>
           {/* <li className="item-header">Статус</li> */}
           {/* <li className="item-header">Вартість</li>

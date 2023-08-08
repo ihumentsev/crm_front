@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import openIcon from '../../images/Polygon.svg';
 
 const ItemBox = styled.li`
+  min-width: 1120px;
   background-color: #fff;
   border-radius: 5px;
   height: 64px;
@@ -13,20 +14,25 @@ const ItemBox = styled.li`
   overflow: hidden;
   box-sizing: border-box;
   /* border: 2px solid #fff; */
-
   /* padding-bottom: 20px; */
   & p {
     padding: 0;
     margin: 0;
+    color: #334d6e;
+    font-style: normal;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.13px;
   }
   & .column-wraper {
-    min-width: 100px;
-    max-width: 100px;
+    width: 150px;
     display: flex;
     align-items: center;
     margin-right: 5px;
     padding: 0 10px;
     min-height: 40px;
+    
   }
   & .status {
     background-color: #2ed47a;
@@ -135,39 +141,47 @@ const OrderBox = styled.div`
   padding: 10px;
 
   & .section-title {
-    display: block;
-    height: 1px;
-    width: 100%;
-    margin: 24px 0;
-    background-color: #dcdfe6;
-    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    & .border-line {
+      display: block;
+      height: 1px;
+      flex-grow: 1;
+      flex-basis: 0;
+      margin: 24px 0;
+      background-color: #dcdfe6;
+    }
     & .text-wraper {
-      position: absolute;
-      left: 0;
-      top: -15px;
       background: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 130px;
-      height: 26px;
+      padding: 10px;
       box-sizing: border-box;
+      margin-right: 10px;
+      & p {
+        color: #c2cfe0;
+        /* font-family: Poppins; */
+        /* font-size: 13px; */
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 0.13px;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 5px;
+      }
     }
     & .btn-wraper {
-      position: absolute;
-      right: 0;
-      top: -15px;
       width: 130px;
       height: 26px;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #fff;
-    }
-    & p {
-      position: relative;
-      margin: 0;
-      padding: 0;
+      /* background: #fff; */
+      margin-left: 10px;
     }
   }
   & .head-list {
@@ -179,11 +193,14 @@ const OrderBox = styled.div`
   }
   & .head-item {
     box-sizing: border-box;
-    width: 100px;
+    width: 120px;
     box-sizing: border-box;
-    font-size: 0.9rem;
-    line-height: 1rem;
-    font-weight: 400;
+    color: #334d6e;
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.13px;
     padding: 0 8px;
     overflow-wrap: break-word;
   }
@@ -196,10 +213,10 @@ const OrderBox = styled.div`
     & li {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       box-sizing: border-box;
       width: 100%;
-      padding-top: 5px;
-      padding-bottom: 5px;
+      padding: 5px;
       border-bottom: solid 1px rgb(128, 128, 128);
     }
     & li:last-child {
@@ -208,7 +225,7 @@ const OrderBox = styled.div`
   }
   & .item-wraper {
     box-sizing: border-box;
-    width: 100px;
+    width: 120px;
     display: flex;
     font-size: 0.9rem;
     line-height: 1rem;
@@ -221,42 +238,50 @@ const PayBox = styled.div`
   display: flex;
   justify-content: space-between;
   /* flex-direction: column; */
-  padding: 10px;
+  padding: 20px;
   margin-top: 10px;
   & .section-title {
-    display: block;
-    height: 1px;
-    width: 100%;
-    margin: 24px 0;
-    background-color: #dcdfe6;
-    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    & .border-line {
+      display: block;
+      height: 1px;
+      flex-grow: 1;
+      flex-basis: 0;
+      margin: 24px 0;
+      background-color: #dcdfe6;
+    }
     & .text-wraper {
-      position: absolute;
-      left: 0;
-      top: -15px;
       background: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 130px;
-      height: 26px;
+      padding: 10px;
       box-sizing: border-box;
+      margin-right: 10px;
+      & p {
+        color: #c2cfe0;
+        /* font-family: Poppins; */
+        /* font-size: 13px; */
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 0.13px;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 5px;
+      }
     }
     & .btn-wraper {
-      position: absolute;
-      right: 0;
-      top: -15px;
       width: 130px;
       height: 26px;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #fff;
-    }
-    & p {
-      position: relative;
-      margin: 0;
-      padding: 0;
+      /* background: #fff; */
+      margin-left: 10px;
     }
   }
   & .head-list {
@@ -268,7 +293,7 @@ const PayBox = styled.div`
   }
   & .head-item {
     box-sizing: border-box;
-    width: 100px;
+    width: 120px;
     box-sizing: border-box;
     font-size: 0.9rem;
     line-height: 1rem;
@@ -287,8 +312,7 @@ const PayBox = styled.div`
       align-items: center;
       box-sizing: border-box;
       width: 100%;
-      padding-top: 5px;
-      padding-bottom: 5px;
+      padding: 5px;
       border-bottom: solid 1px rgb(128, 128, 128);
     }
     & li:last-child {
@@ -297,7 +321,7 @@ const PayBox = styled.div`
   }
   & .item-wraper {
     box-sizing: border-box;
-    width: 100px;
+    width: 120px;
     display: flex;
     font-size: 0.9rem;
     line-height: 1rem;
@@ -314,6 +338,28 @@ const PayBox = styled.div`
       justify-content: flex-end;
       align-items: flex-end;
       margin-left: 15px;
+    }
+    & p {
+      display: flex;
+      color: #c2cfe0;
+      /* font-family: Poppins; */
+      /* font-size: 13px; */
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: 0.13px;
+    }
+    & span {
+      display: flex;
+      color: #334d6e;
+      font-style: normal;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: 0.13px;
+      margin-left: auto;
+      width: 150px;
+      justify-content: flex-end;
     }
   }
 `;

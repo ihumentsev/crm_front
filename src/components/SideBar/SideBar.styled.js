@@ -24,13 +24,14 @@ const NavWraper = styled.nav`
   flex-shrink: 0;
   /* padding: 24px; */
   & .logo {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60px;
+    height: 64px;
     /* padding: 17px 24px; */
     color: #109cf1;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
@@ -97,8 +98,8 @@ const ImageLogo = styled.img`
 
 const PageLink = styled(NavLink)`
   color: var(--secondary-dark-blue, #334d6e);
-  font-family: Poppins;
-  font-size: 13px;
+  /* font-family: Poppins; */
+  /* font-size: 13px; */
   font-style: normal;
   font-weight: 500;
   line-height: normal;

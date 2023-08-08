@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ItemBox, OptionsBox, OrderBox, PayBox } from './OrderItem.styled';
 import BlueBtn from 'components/Btn/BlueBtn';
 import WhiteBtn from 'components/Btn/WhiteBtn';
+import { format } from 'date-fns';
 
 
 export default function OrderItem({ order }) {
@@ -32,7 +33,7 @@ export default function OrderItem({ order }) {
             <p>{order.source}</p>
           </div>
           <div className="column-wraper">
-            <p> {order.createdAt}</p>
+            <p> {format(new Date(order.createdAt), 'dd-MM-yyyy')}</p>
           </div>
           <div className="column-wraper status">
             <p>{order.status}</p>
@@ -61,7 +62,7 @@ export default function OrderItem({ order }) {
             </div>
             <div className="input-wraper">
               <p>Час створення:</p>
-              <div>{order.createdAt}</div>
+              <div>{format(new Date(order.createdAt), 'dd-MM-yyyy')}</div>
             </div>
             <div className="input-wraper">
               <p>Менеджер:</p>
@@ -164,6 +165,7 @@ export default function OrderItem({ order }) {
             <div className="text-wraper">
               <p>Продукція</p>
             </div>
+            <div className="border-line"></div>
             <div className="btn-wraper">
               <BlueBtn text="Додати"></BlueBtn>
             </div>
@@ -213,6 +215,7 @@ export default function OrderItem({ order }) {
               <div className="text-wraper">
                 <p>Оплати</p>
               </div>
+              <div className="border-line"></div>
               <div className="btn-wraper">
                 <BlueBtn text="Додати оплату"></BlueBtn>
               </div>
@@ -230,7 +233,9 @@ export default function OrderItem({ order }) {
               <ul className="item-list">
                 {order.payments.map(item => (
                   <li key={item.payment_id}>
-                    <span className="item-wraper">{item.payment_date}</span>
+                    <span className="item-wraper">
+                      {format(new Date(item.payment_date), 'dd-MM-yyyy HH:mm')}
+                    </span>
                     <span className="item-wraper">{item.payment_method}</span>
                     <span className="item-wraper">
                       {item.payment_amount} грн.
@@ -244,17 +249,27 @@ export default function OrderItem({ order }) {
           </div>
           <div className="pay-wraper">
             <div className="text-wraper">
-              <p>Сумма за товари:</p>
-              <p>Знижка на замовлення:</p>
-              <p>Вартість доставки:</p>
-              <p>Загальна вартість:</p>
+              <p>
+                Сумма за товари:
+                <span>{order.total_amount.toFixed(2)} грн.</span>
+              </p>
+              <p>
+                Знижка на замовлення:<span> -0.00 грн.</span>
+              </p>
+              <p>
+                Вартість доставки:<span>0.00 грн.</span>
+              </p>
+              <p>
+                Загальна вартість:
+                <span>{order.total_amount.toFixed(2)} грн.</span>
+              </p>
             </div>
-            <div className="text-wraper">
-              <p>{order.total_amount} грн.</p>
-              <p> -0.00 грн.</p>
-              <p>0.00 грн.</p>
-              <p>{order.total_amount} грн.</p>
-            </div>
+            {/* <div className="text-wraper">
+              <span>{order.total_amount} грн.</span>
+              <span> -0.00 грн.</span>
+              <span>0.00 грн.</span>
+              <span>{order.total_amount} грн.</span>
+            </div> */}
           </div>
         </PayBox>
       </ItemBox>

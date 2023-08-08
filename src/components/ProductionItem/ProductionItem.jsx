@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { ItemBox, OptionsBox } from './ProductionItem.styled';
 import WhiteBtn from 'components/Btn/WhiteBtn';
+import { format } from 'date-fns';
+
 
 export default function ProductionItem({ order }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +23,9 @@ export default function ProductionItem({ order }) {
           </div>
 
           <div className="column-wraper">#{order.id}</div>
-          <div className="column-wraper">{order.created_at}</div>
+          <div className="column-wraper">
+            {format(new Date(order.created_at), 'dd-MM-yyyy')}
+          </div>
           <div className="column-wraper">{order.order_id}</div>
           <div className="column-wraper">
             <p>{order.product_name}</p>
@@ -38,9 +42,9 @@ export default function ProductionItem({ order }) {
           <div className="column-wraper">
             <p>ТОВ "Рога та Копита"</p>
           </div>
-          <div className="column-wraper">
+          {/* <div className="column-wraper">
             <p>Черенок Костянтин</p>
-          </div>
+          </div> */}
           <div className="column-wraper">
             <p>Терміново</p>
           </div>

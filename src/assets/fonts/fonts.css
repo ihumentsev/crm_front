@@ -19,3 +19,14 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: url('./montserrat/Poppins-Medium.ttf');
+    src: local('Poppins'), local('Poppins-Medium'),
+        url('./montserrat/Poppins-Medium.ttf') format('embedded-opentype'),
+        url('./montserrat/Poppins-Medium.ttf') format('woff'),
+        url('./montserrat/Poppins-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

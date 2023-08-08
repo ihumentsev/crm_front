@@ -1,16 +1,24 @@
-// import css from '../Home/Home.module.css';
+
 // import { useNavigate } from 'react-router-dom';
-// import Btn from 'components/Btn/Btn';
+
 import OrderItem from 'components/OrderItem/OrderItem';
-import { BtnWraper, ContentBox } from './Orders.styled';
+import { ContentBox } from './Orders.styled';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
+import ModalPortal from 'components/Portal/ModalPortal';
+import OrderModal from 'components/Modal/OrderModal';
+import Header from 'components/Header/Header';
 
 export default function Orders() {
   const [orders, setOrders] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   console.log(orders);
 
+
+  const ToggelModal = () => {
+    setShowModal(!showModal);
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -35,10 +43,7 @@ export default function Orders() {
 
   return (
     <>
-      <BtnWraper>
-        <div>Замовлення</div>
-        <button className="btn">Нове замовлення</button>
-      </BtnWraper>
+      <Header textHead = "Замовлення" textBtn="Нове замовлення" handler={ToggelModal} />
       <ContentBox>
         <ul className="list-header">
           <li className="item-header">
@@ -62,6 +67,11 @@ export default function Orders() {
           ))}
         </ul>
       </ContentBox>
+      {showModal && (
+        <ModalPortal>
+          <OrderModal toggelModal={ToggelModal} />
+        </ModalPortal>
+      )}
     </>
   );
 }

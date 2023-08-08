@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import openIcon from '../../images/Polygon.svg';
 
 const ItemBox = styled.li`
+  min-width: 1120px;
   background-color: #fff;
   border-radius: 5px;
   height: 64px;
@@ -13,20 +14,24 @@ const ItemBox = styled.li`
   overflow: hidden;
   box-sizing: border-box;
   /* border: 2px solid #fff; */
-
   /* padding-bottom: 20px; */
   & p {
     padding: 0;
     margin: 0;
+    color: #334d6e;
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.13px;
   }
   & .column-wraper {
-    min-width: 100px;
-    max-width: 100px;
-    min-height: 40px;
+    width: 150px;
     display: flex;
     align-items: center;
     margin-right: 5px;
     padding: 0 10px;
+    min-height: 40px;
   }
   & .status {
     background-color: #2ed47a;

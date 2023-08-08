@@ -9,6 +9,7 @@ import {
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
+import Header from 'components/Header/Header';
 
 export default function Clients() {
   const [orders, setOrders] = useState([]);
@@ -37,10 +38,11 @@ export default function Clients() {
 
   return (
     <>
-      <BtnWraper>
-        <div>Клієнти</div>
-        <button className="btn">Новий клієнт</button>
-      </BtnWraper>
+      <Header
+        textHead="Клієнти"
+        textBtn="Додати нового клієнта"
+        handler={() => console.log('btn')}
+      />
       <ContentBox>
         <ul className="list-header">
           <li className="item-header">
