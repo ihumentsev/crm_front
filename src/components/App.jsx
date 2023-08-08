@@ -13,14 +13,14 @@ export const App = () => {
     <Suspense fallback={<h1>Загрузка...</h1>}>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Dashboard/>} />
+          <Route index element={<Dashboard />} />
           <Route path="/orders" element={<Orders />} />
-          <Route path="/clients" element={<Clients/>} />
-          <Route path="/analytic" element={<Analitics/>} />
-          <Route path="/production" element={<Production/>} />
-          <Route path="/chat" element={<Chat/>} />
+          <Route path="/clients" element={<Clients />} />
+          <Route path="/analytic" element={<Analitics />} />
+          <Route path="/production" element={<Production />} />
+          <Route path="/chat" element={<Chat />} />
           <Route path="/options" element={<div>options</div>} />
-          <Route path="*" element={<Orders />} />
+          <Route path="*" element={<Dashboard />} />
         </Route>
       </Routes>
     </Suspense>
