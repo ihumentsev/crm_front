@@ -2,10 +2,7 @@
 // import { useNavigate } from 'react-router-dom';
 // import Btn from 'components/Btn/Btn';
 import OrderItem from 'components/OrderItem/OrderItem';
-import {
-  BtnWraper,
-  ContentBox,
-} from './Clients.styled';
+import { ContentBox } from './Clients.styled';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
@@ -13,21 +10,19 @@ import Header from 'components/Header/Header';
 
 export default function Clients() {
   const [orders, setOrders] = useState([]);
-  
 
   useEffect(() => {
-   const fetchData = async () => {
-     try {
-       const response = await axios.get('http://localhost:4444/orders');
-       setOrders(response.data);
-     } catch (error) {
-       console.error('Ошибка при получении данных', error);
-     }
-   };
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:4444/orders');
+        setOrders(response.data);
+      } catch (error) {
+        console.error('Ошибка при получении данных', error);
+      }
+    };
 
-   fetchData();
+    fetchData();
   }, []);
-
 
   // const navigate = useNavigate();
 
