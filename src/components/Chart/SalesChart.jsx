@@ -190,7 +190,7 @@ const SalesChart = ({ orders }) => {
           orderDate.getDate() === date.getDate()
         );
       })
-      .reduce((total, order) => total + order.total_amount, 0);
+      .reduce((total, order) => total + Number(order.total_amount), 0);
 
     totalActualSales += totalAmount;
     return totalActualSales;

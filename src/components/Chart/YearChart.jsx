@@ -17,7 +17,7 @@ const YearChart = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          'https://back-crm-fb781da88f45.herokuapp.com/orders'
+          'http://localhost:4545/onlyorders'
         );
         setOrders(response.data);
       } catch (error) {
@@ -64,7 +64,7 @@ const YearChart = () => {
   const actualSalesForYear = orders.reduce((total, order) => {
     const orderYear = new Date(order.createdAt).getFullYear();
     if (orderYear === selectedYear.getFullYear()) {
-      return total + order.total_amount;
+      return total + Number(order.total_amount);
     }
     return total;
   }, 0);

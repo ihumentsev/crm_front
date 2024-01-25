@@ -47,49 +47,49 @@ const NavWraper = styled.nav`
     background-repeat: no-repeat;
     background-position: left center;
     padding-left: 34px;
-    margin-bottom: 20px;
+    
   }
   & .order {
     background-image: url(${tasks});
     background-repeat: no-repeat;
     background-position: left center;
     padding-left: 34px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
   }
   & .clients {
     background-image: url(${contacts});
     background-repeat: no-repeat;
     background-position: left center;
     padding-left: 34px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
   }
   & .analytic {
     background-image: url(${email});
     background-repeat: no-repeat;
     background-position: left center;
     padding-left: 34px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
   }
   & .production {
     background-image: url(${deals});
     background-repeat: no-repeat;
     background-position: left center;
     padding-left: 34px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
   }
   & .chat {
     background-image: url(${chat});
     background-repeat: no-repeat;
     background-position: left center;
     padding-left: 34px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
   }
   & .options {
     background-image: url(${settings});
     background-repeat: no-repeat;
     background-position: left center;
     padding-left: 34px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
   }
 `;
 const ImageLogo = styled.img`
@@ -98,13 +98,15 @@ const ImageLogo = styled.img`
 
 const PageLink = styled(NavLink)`
   color: var(--secondary-dark-blue, #334d6e);
-  /* font-family: Poppins; */
-  /* font-size: 13px; */
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   letter-spacing: 0.13px;
   text-decoration: none;
+  margin-bottom: 20px;
+  display: inline-block;
+  
+
   &:hover {
     color: var(--main-accent-blue, #109cf1);
   }

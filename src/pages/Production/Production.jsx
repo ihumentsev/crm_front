@@ -11,20 +11,41 @@ import Header from 'components/Header/Header';
 export default function Production() {
   const [developProducts, setDevelopProducts] = useState([]);
 console.log(developProducts);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          'https://back-crm-fb781da88f45.herokuapp.com/products?status=на виробництво'
-        );
-        setDevelopProducts(response.data);
-      } catch (error) {
-        console.error('Ошибка при получении данных', error);
-      }
-    };
 
-    fetchData();
-  }, []);
+const fetchData = async () => {
+  try {
+    const response = await axios.get(
+      `https://back-crm-fb781da88f45.herokuapp.com/products`
+    );
+    setDevelopProducts(response.data);
+  } catch (error) {
+    console.error('Ошибка при получении данных', error);
+  }
+};
+
+useEffect(() => {
+  fetchData();
+  const intervalId = setInterval(fetchData, 10 * 60 * 1000);
+  return () => clearInterval(intervalId);
+}, []);
+
+const handleForceRefresh = () => {
+  fetchData();
+};
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         'https://back-crm-fb781da88f45.herokuapp.com/products'
+  //       );
+  //       setDevelopProducts(response.data);
+  //     } catch (error) {
+  //       console.error('Ошибка при получении данных', error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
 
   // const navigate = useNavigate();
 
@@ -37,8 +58,8 @@ console.log(developProducts);
     <>
       <Header
         textHead="Виробництво"
-        textBtn="Створити нову задачу"
-        handler={() => console.log('btn')}
+        textBtn="Оновити данні"
+        handler={handleForceRefresh}
       />
       <ContentBox>
         <ul className="list-header">
@@ -48,23 +69,19 @@ console.log(developProducts);
           </li>
           <li className="item-header">№ в-ва</li>
           <li className="item-header">Створено</li>
-          <li className="item-header">№ замовлення</li>
           <li className="item-header">Товар</li>
-          <li className="item-header">Опис</li>
-          <li className="item-header">Кількість</li>
           <li className="item-header">Статус</li>
           <li className="item-header">Замовник</li>
-          {/* <li className="item-header">Менеджер</li> */}
           <li className="item-header">Пріорітет</li>
-          {/* <li className="item-header">Статус</li> */}
-          {/* <li className="item-header">Вартість</li>
-          <li className="item-header">Менеджер</li> */}
+          <li className="item-header">Додатково</li>
         </ul>
 
         <ul className="order-list">
-          {developProducts.map(order => (
-            <ProductionItem order={order} />
-          ))}
+        {developProducts
+  .filter(order => order.status_develop !== "очікує підтвердження")
+  .map(order => (
+    <ProductionItem products={order} key={order.id} ordersUpdate ={fetchData}/>
+  ))}
         </ul>
       </ContentBox>
     </>

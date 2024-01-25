@@ -1,23 +1,20 @@
 import { useState } from 'react';
-import { ItemBox, OptionsBox, OrderBox, PayBox } from './OrderItem.styled';
+import { ItemBox, OptionsBox, OrderBox, PayBox } from './ClientItem.styled';
 import BlueBtn from 'components/Btn/BlueBtn';
 import WhiteBtn from 'components/Btn/WhiteBtn';
 import { format } from 'date-fns';
 
 
-
-
-
-export default function OrderItem({ order }) {
+export default function ClientItem({ client }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggelOpenItem = () => {
     setIsOpen(!isOpen);
   };
-
+console.log(client.id);
   return (
     <>
       <ItemBox
-        key={order.id}
+        key={client.id}
         className={isOpen ? 'order-item active' : 'order-item'}
       >
         <div className={isOpen ? 'visible-box active' : 'visible-box '}>
@@ -27,64 +24,58 @@ export default function OrderItem({ order }) {
           </div>
 
           <div className="column-wraper">
-            <p>#{order.id}</p>
+            <p>#{client.id}</p>
           </div>
           <div className="column-wraper">
-            <p>{order.owner}</p>
+            <p>{`${client.surname} ${client.name} `}</p>
+            
           </div>
           <div className="column-wraper">
-            <p>{order.source}</p>
+            <p>{client.email}</p>
           </div>
           <div className="column-wraper">
-            <p> {format(new Date(order.createdAt), 'dd-MM-yyyy')}</p>
+            <p>{client.company}</p>
           </div>
-          <div className="column-wraper status">
-            <p>{order.status}</p>
+          <div className="column-wraper">
+            <p> {format(new Date(client.createdAt), 'dd-MM-yyyy')}</p>
           </div>
+          
           {/* <div className="column-wraper">
             <p>{order.product}</p>
           </div> */}
-          <div className="column-wraper">
+          {/* <div className="column-wraper">
             <p>{order.total_amount} грн </p>
-          </div>
-          <div className="column-wraper">
+          </div> */}
+          {/* <div className="column-wraper">
             <p>
               {order.manager === null ? 'не визначено' : `${order.manager}`}
             </p>
-          </div>
-          <div className="column-wraper">
-            <p>
-              Роздрукувати бланк замовлення
-            </p>
-          
-            
-    
-          </div>
+          </div> */}
         </div>
         <OptionsBox>
           <div className="wraper">
             <div className="input-wraper">
               <p>№ замовлення:</p>
-              <div>#{order.id}</div>
+              <div>#{client.id}</div>
             </div>
-            <div className="input-wraper">
+            {/* <div className="input-wraper">
               <p>Джерело:</p>
               <div>{order.source}</div>
-            </div>
-            <div className="input-wraper">
+            </div> */}
+            {/* <div className="input-wraper">
               <p>Час створення:</p>
               <div>{format(new Date(order.createdAt), 'dd-MM-yyyy')}</div>
-            </div>
+            </div> */}
             <div className="input-wraper">
               <p>Менеджер:</p>
-              <div>
+              {/* <div>
                 {order.manager === null ? 'не визначено' : `${order.manager}`}
-              </div>
+              </div> */}
             </div>
             <div className="input-wraper">
               <label>Відповідальний</label>
               <select>
-                <option>{order.responsibility}</option>
+                {/* <option>{order.responsibility}</option> */}
                 <option>Шинкар Сергій</option>
                 <option>Кулінко Валерій</option>
               </select>
@@ -92,7 +83,7 @@ export default function OrderItem({ order }) {
             <div className="input-wraper">
               <label>Статус</label>
               <select>
-                <option>{order.status}</option>
+                {/* <option>{order.status}</option> */}
                 <option>На виробництві</option>
                 <option>Виготовленно</option>
                 <option>Відвантажено</option>
@@ -101,7 +92,7 @@ export default function OrderItem({ order }) {
             </div>
             <div className="input-wraper">
               <p>Статус оплати:</p>
-              <div>{order.paymentStatus}</div>
+              {/* <div>{order.paymentStatus}</div> */}
             </div>
             <div className="input-wraper">
               <p>Файли:</p>
@@ -198,7 +189,7 @@ export default function OrderItem({ order }) {
           </div>
           <div>
             <ul className="item-list">
-              {order.products.map(product => (
+              {/* {order.products.map(product => (
                 <li key={product.id}>
                   <span className="item-wraper">#{product.id}</span>
                   <span className="item-wraper">{product.product_name}</span>
@@ -216,7 +207,7 @@ export default function OrderItem({ order }) {
                   <span className="item-wraper">- </span>
                   <span className="item-wraper">{product.total_price} грн</span>
                 </li>
-              ))}
+              ))} */}
             </ul>
           </div>
         </OrderBox>
@@ -242,7 +233,7 @@ export default function OrderItem({ order }) {
             </div>
             <div>
               <ul className="item-list">
-                {order.payments !== null && order.payments.map(item => (
+                {/* {order.payments !== null && order.payments.map(item => (
                   <li key={item.id}>
                     <span className="item-wraper">
                       {format(new Date(item.payment_date), 'dd-MM-yyyy HH:mm')}
@@ -254,7 +245,7 @@ export default function OrderItem({ order }) {
                     <span className="item-wraper">Пердплата</span>
                     <span className="item-wraper">{item.payment_status}</span>
                   </li>
-                ))}
+                ))} */}
               </ul>
             </div>
           </div>
@@ -262,7 +253,7 @@ export default function OrderItem({ order }) {
             <div className="text-wraper">
               <p>
                 Сумма за товари:
-                <span>{order.total_amount} грн.</span>
+                {/* <span>{order.total_amount} грн.</span> */}
               </p>
               <p>
                 Знижка на замовлення:<span> -0.00 грн.</span>
@@ -272,7 +263,7 @@ export default function OrderItem({ order }) {
               </p>
               <p>
                 Загальна вартість:
-                <span>{order.total_amount} грн.</span>
+                {/* <span>{order.total_amount} грн.</span> */}
               </p>
             </div>
           </div>

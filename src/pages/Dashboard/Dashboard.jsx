@@ -17,14 +17,27 @@ import AnimatedCounter from 'components/AnimatedCounter/AnimatedCounter';
 export default function Dashboard() {
   const [orders, setOrders] = useState([]);
   const [clients, setClients] = useState([]);
+  const [selectedYear, setSelectedYear] = useState(new Date());
 console.log(clients);
-  let ordersSum = 0;
-  let allOrders = 0;
-  orders.forEach(order => {
-    console.log(order);
-    ordersSum += order.total_amount;
-    allOrders += 1;
-  });
+  // let ordersSum = 0;
+  // let allOrders = 0;
+  // orders.forEach(order => {
+  //   console.log(order);
+  //   ordersSum += Number(order.total_amount);
+  //   allOrders += 1;
+  // });
+
+  const actualSalesForYear = orders.reduce((data, order) => {
+    const orderYear = new Date(order.createdAt).getFullYear();
+    if (orderYear === selectedYear.getFullYear()) {
+      data.totalSales += Number(order.total_amount);
+      data.totalOrders += 1;
+    }
+    return data;
+  }, { totalSales: 0, totalOrders: 0 });
+  const salesForYear = actualSalesForYear.totalSales;
+  const numberOfOrdersForYear = actualSalesForYear.totalOrders;
+  console.log(actualSalesForYear);
 // const ordersSumFormated = ordersSum.toLocaleString('en-US', {
 //   minimumFractionDigits: 2,
 //   maximumFractionDigits: 2,
@@ -34,11 +47,11 @@ console.log(clients);
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          'https://back-crm-fb781da88f45.herokuapp.com/orders'
+          'http://localhost:4545/onlyorders'
         );
         setOrders(response.data);
          const res = await axios.get(
-           'https://back-crm-fb781da88f45.herokuapp.com/clients'
+           'http://localhost:4545/clients'
          );
          setClients(res.data);
       } catch (error) {
@@ -55,16 +68,17 @@ console.log(clients);
         handler={() => console.log('btn')}
       />
       <ContentBox>
+        <p>Показники поточного року</p>
         <CartWraper>
           <div className="cart-item order">
-            <AnimatedCounter value={allOrders} text="Всього замовлень:" />
+            <AnimatedCounter value={numberOfOrdersForYear} text="Всього замовлень:" />
           </div>
           <div className="cart-item client">
             <AnimatedCounter value={clients.length} text="Клієнтів:" />
           </div>
           <div className="cart-item сash">
             <AnimatedCounter
-              value={ordersSum.toFixed(2)}
+              value={salesForYear.toFixed(2)}
               text="Замовлень на сумму:"
             />
           </div>

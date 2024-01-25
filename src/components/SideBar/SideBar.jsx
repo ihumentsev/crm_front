@@ -18,7 +18,7 @@ export const SideBar = () => {
       <NavWraper>
         <div className="logo "> AI CRM</div>
         <div className="link-wraper">
-          <PageLink end to="/">
+          <PageLink end to="/" className="nav-container">
             <div className="head link-container">Головна</div>
           </PageLink>
 
@@ -26,31 +26,32 @@ export const SideBar = () => {
             <div className="order link-container">Замовлення</div>
           </PageLink>
 
-          <div className="clients link-container">
+         
             <PageLink end to="/clients">
-              Клієнти
+            <div className="clients link-container">Клієнти</div> 
             </PageLink>
-          </div>
-          <div className="analytic link-container">
+        
+          
             <PageLink end to="/analytic">
-              Аналітика
+            <div className="analytic link-container">Аналітика</div>
+              
             </PageLink>
-          </div>
-          <div className="production link-container">
+         
+          
             <PageLink end to="/production">
-              Виробництво
+            <div className="production link-container">Виробництво</div> 
             </PageLink>
-          </div>
-          <div className="chat link-container">
+          
+          
             <PageLink end to="/chat">
-              Чат
+            <div className="chat link-container">Чат</div>
             </PageLink>
-          </div>
-          <div className="options link-container">
+          
+          
             <PageLink end to="/options">
-              Налаштування
+            <div className="options link-container">Налаштування</div>
             </PageLink>
-          </div>
+          
         </div>
       </NavWraper>
     </SideBarBox>
