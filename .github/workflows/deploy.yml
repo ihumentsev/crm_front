@@ -13,7 +13,7 @@ jobs:
 
       - name: Install, lint, build 🔧
         run: |
-          npm install
+          npm install --legacy-peer-deps
           npm run lint:js
           REACT_APP_HOST_BACK=${{ secrets.REACT_APP_HOST_BACK }} npm run build
 
