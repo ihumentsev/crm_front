@@ -15,7 +15,7 @@ jobs:
         run: |
           npm install
           npm run lint:js
-          REACT_APP_API_KEY=${{ secrets.REACT_APP_HOST_BACK }} npm run build
+          REACT_APP_HOST_BACK=${{ secrets.REACT_APP_HOST_BACK }} npm run build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
