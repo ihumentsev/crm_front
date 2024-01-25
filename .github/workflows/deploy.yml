@@ -15,8 +15,9 @@ jobs:
         run: |
           npm install --legacy-peer-deps
           npm run lint:js
-          REACT_APP_HOST_BACK=${{ secrets.REACT_APP_HOST_BACK }} npm run build
-
+          npm run build
+        env: 
+          REACT_APP_HOST_BACK: ${{ secrets.REACT_APP_HOST_BACK }}
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
