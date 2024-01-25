@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/crm_front/static/css/main.768bb9ce.css",
-    "main.js": "/crm_front/static/js/main.22aabe7a.js",
-    "static/js/847.89acffaf.chunk.js": "/crm_front/static/js/847.89acffaf.chunk.js",
+    "main.js": "/crm_front/static/js/main.3eea57a9.js",
+    "static/js/33.50cc7913.chunk.js": "/crm_front/static/js/33.50cc7913.chunk.js",
     "static/js/11.2642b0e4.chunk.js": "/crm_front/static/js/11.2642b0e4.chunk.js",
     "static/js/498.cf646209.chunk.js": "/crm_front/static/js/498.cf646209.chunk.js",
     "static/js/703.8d2407ab.chunk.js": "/crm_front/static/js/703.8d2407ab.chunk.js",
-    "static/js/513.936ab517.chunk.js": "/crm_front/static/js/513.936ab517.chunk.js",
+    "static/js/513.32b5263c.chunk.js": "/crm_front/static/js/513.32b5263c.chunk.js",
     "static/js/267.5806e329.chunk.js": "/crm_front/static/js/267.5806e329.chunk.js",
     "static/media/Poppins-Medium.ttf": "/crm_front/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
     "static/media/Montserrat-SemiBold.ttf": "/crm_front/static/media/Montserrat-SemiBold.62b8eee010e3957d425f.ttf",
@@ -24,16 +24,16 @@
     "static/media/chat.svg": "/crm_front/static/media/chat.5cfe697fcfb5f11ad6e8db57aa5a69ef.svg",
     "static/media/Polygon.svg": "/crm_front/static/media/Polygon.aa9748770926bb9193a54868caae934b.svg",
     "main.768bb9ce.css.map": "/crm_front/static/css/main.768bb9ce.css.map",
-    "main.22aabe7a.js.map": "/crm_front/static/js/main.22aabe7a.js.map",
-    "847.89acffaf.chunk.js.map": "/crm_front/static/js/847.89acffaf.chunk.js.map",
+    "main.3eea57a9.js.map": "/crm_front/static/js/main.3eea57a9.js.map",
+    "33.50cc7913.chunk.js.map": "/crm_front/static/js/33.50cc7913.chunk.js.map",
     "11.2642b0e4.chunk.js.map": "/crm_front/static/js/11.2642b0e4.chunk.js.map",
     "498.cf646209.chunk.js.map": "/crm_front/static/js/498.cf646209.chunk.js.map",
     "703.8d2407ab.chunk.js.map": "/crm_front/static/js/703.8d2407ab.chunk.js.map",
-    "513.936ab517.chunk.js.map": "/crm_front/static/js/513.936ab517.chunk.js.map",
+    "513.32b5263c.chunk.js.map": "/crm_front/static/js/513.32b5263c.chunk.js.map",
     "267.5806e329.chunk.js.map": "/crm_front/static/js/267.5806e329.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.768bb9ce.css",
-    "static/js/main.22aabe7a.js"
+    "static/js/main.3eea57a9.js"
   ]
 }
