@@ -1,4 +1,4 @@
-import { ContentBox } from './Clients.styled';
+import { ContentBox, ListItem } from './Clients.styled';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
@@ -8,7 +8,7 @@ const host = process.env.REACT_APP_HOST_BACK;
 export default function Clients() {
   const [clients, setClients] = useState([]);
   
-
+console.log(clients);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -22,12 +22,6 @@ export default function Clients() {
     fetchData();
   }, []);
 
-  // const navigate = useNavigate();
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   navigate('/tweets', { replace: true });
-  // };
 
   return (
     <>
@@ -37,7 +31,7 @@ export default function Clients() {
         handler={() => console.log('btn')}
       />
       <ContentBox>
-        <ul className="list-header">
+        <ListItem className="list-header">
           <li className="item-header">
             <label htmlFor="all"> Вибрати всі</label>
             <input className="check-header" type="checkbox" id="all" />
@@ -51,7 +45,7 @@ export default function Clients() {
           {/* <li className="item-header">Останнє замовлення</li> */}
           <li className="item-header">Створено</li>
           <li className="item-header">Менеджер</li>
-        </ul>
+        </ListItem>
 
         <ul className="order-list">
           {clients.map(client => (

@@ -13,6 +13,7 @@ const ItemBox = styled.li`
   margin-bottom: 10px;
   overflow: hidden;
   box-sizing: border-box;
+
   /* border: 2px solid #fff; */
   /* padding-bottom: 20px; */
   & p {
@@ -32,15 +33,15 @@ const ItemBox = styled.li`
     margin-right: 5px;
     padding: 0 10px;
     min-height: 40px;
-    
   }
   & .status {
     background-color: #2ed47a;
     border-radius: 5px;
   }
   & .toggle-btn {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
     background-image: url(${openIcon});
     background-repeat: no-repeat;
     background-position: left center;
@@ -101,7 +102,7 @@ const OptionsBox = styled.div`
     padding: 0 20px;
     flex-direction: column;
     border-right: 1px solid #109cf1;
-    &:last-child{
+    &:last-child {
       border-right: none;
     }
   }
@@ -112,7 +113,7 @@ const OptionsBox = styled.div`
     /* justify-content: space-between; */
     margin-bottom: 10px;
     /* width: 250px; */
-    
+
     & p {
       color: var(--text-help-gray, #818e9b);
       font-family: Poppins;
@@ -363,4 +364,33 @@ const PayBox = styled.div`
     }
   }
 `;
-export { ItemBox, PayBox, OrderBox, OptionsBox };
+
+const ListItem = styled.ul`
+  display: grid;
+  /* column-gap: 70px; */
+  grid-template-columns: 110px 50px 150px 200px 150px 100px 140px 120px;
+  justify-items: left;
+  justify-content: space-between;
+
+  -webkit-box-pack: justify;
+
+  list-style: none;
+  padding: 0px 10px;
+  margin: 0px;
+  width: 100%;
+  & li {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    color: #334d6e;
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.13px;
+  }
+`;
+
+export { ItemBox, PayBox, OrderBox, OptionsBox, ListItem };

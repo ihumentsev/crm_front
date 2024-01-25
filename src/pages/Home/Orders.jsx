@@ -41,12 +41,7 @@ export default function Orders() {
     fetchData();
   }, [pageSize, page, formattedStartDate, formattedEndDate]);
 
-  // const navigate = useNavigate();
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   navigate('/tweets', { replace: true });
-  // };
+ 
 
   return (
     <>
@@ -63,9 +58,9 @@ export default function Orders() {
           <li className="item-header">Джерело</li>
           <li className="item-header">Створено</li>
           <li className="item-header">Статус</li>
-          <li className="item-header">Продукція</li>
+          {/* <li className="item-header">Продукція</li> */}
           <li className="item-header">Вартість</li>
-          <li className="item-header">Менеджер</li>
+          <li className="item-header">Додатково</li>
         </ul>
 
         <ul className="order-list">

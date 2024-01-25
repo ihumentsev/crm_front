@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ItemBox, OptionsBox, OrderBox, PayBox } from './ClientItem.styled';
+import { ItemBox, ListItem, OptionsBox, OrderBox, PayBox } from './ClientItem.styled';
 import BlueBtn from 'components/Btn/BlueBtn';
 import WhiteBtn from 'components/Btn/WhiteBtn';
 import { format } from 'date-fns';
@@ -10,7 +10,7 @@ export default function ClientItem({ client }) {
   const toggelOpenItem = () => {
     setIsOpen(!isOpen);
   };
-console.log(client.id);
+
   return (
     <>
       <ItemBox
@@ -18,7 +18,22 @@ console.log(client.id);
         className={isOpen ? 'order-item active' : 'order-item'}
       >
         <div className={isOpen ? 'visible-box active' : 'visible-box '}>
-          <div className="column-wraper">
+        
+          <ListItem>
+            <li>
+            <div className="toggle-btn" onClick={toggelOpenItem}></div>
+              <input className="check-item" type="checkbox" />
+            </li>
+            <li>#{client.id}</li>
+            <li>{`${client.surname} ${client.name} `}</li>
+            <li>{client.email}</li>
+            <li>{client.company !== null ? client.company: "Данні відсутні"}</li>
+            <li>25</li>
+            <li>{format(new Date(client.createdAt), 'dd-MM-yyyy')}</li>
+            <li>Сідченко Яна</li>
+            
+          </ListItem>
+          {/* <div className="column-wraper">
             <div className="toggle-btn" onClick={toggelOpenItem}></div>
             <input className="check-item" type="checkbox" />
           </div>
@@ -34,23 +49,19 @@ console.log(client.id);
             <p>{client.email}</p>
           </div>
           <div className="column-wraper">
-            <p>{client.company}</p>
+            <p>{client.company !== null ? client.company: "Данні відсутні"}</p>
+          </div>
+          <div className="column-wraper">
+            <p>25</p>
           </div>
           <div className="column-wraper">
             <p> {format(new Date(client.createdAt), 'dd-MM-yyyy')}</p>
           </div>
+          <div className="column-wraper">
+            <p>Сідченко Яна</p>
+          </div> */}
           
-          {/* <div className="column-wraper">
-            <p>{order.product}</p>
-          </div> */}
-          {/* <div className="column-wraper">
-            <p>{order.total_amount} грн </p>
-          </div> */}
-          {/* <div className="column-wraper">
-            <p>
-              {order.manager === null ? 'не визначено' : `${order.manager}`}
-            </p>
-          </div> */}
+          
         </div>
         <OptionsBox>
           <div className="wraper">

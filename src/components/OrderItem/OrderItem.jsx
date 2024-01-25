@@ -3,10 +3,8 @@ import { ItemBox, OptionsBox, OrderBox, PayBox } from './OrderItem.styled';
 import BlueBtn from 'components/Btn/BlueBtn';
 import WhiteBtn from 'components/Btn/WhiteBtn';
 import { format } from 'date-fns';
-
-
-
-
+import { PrintBtn } from 'components/ProductionItem/ProductionItem.styled';
+import { createOrderDocument } from 'helpers/createOrderDocument';
 
 export default function OrderItem({ order }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,24 +39,17 @@ export default function OrderItem({ order }) {
           <div className="column-wraper status">
             <p>{order.status}</p>
           </div>
-          {/* <div className="column-wraper">
-            <p>{order.product}</p>
-          </div> */}
+
           <div className="column-wraper">
             <p>{order.total_amount} грн </p>
           </div>
+
           <div className="column-wraper">
-            <p>
-              {order.manager === null ? 'не визначено' : `${order.manager}`}
-            </p>
-          </div>
-          <div className="column-wraper">
-            <p>
-              Роздрукувати бланк замовлення
-            </p>
-          
-            
-    
+            <PrintBtn
+              onClick={() => {
+                createOrderDocument(order);
+              }}
+            ></PrintBtn>
           </div>
         </div>
         <OptionsBox>
@@ -242,19 +233,23 @@ export default function OrderItem({ order }) {
             </div>
             <div>
               <ul className="item-list">
-                {order.payments !== null && order.payments.map(item => (
-                  <li key={item.id}>
-                    <span className="item-wraper">
-                      {format(new Date(item.payment_date), 'dd-MM-yyyy HH:mm')}
-                    </span>
-                    <span className="item-wraper">{item.payment_method}</span>
-                    <span className="item-wraper">
-                      {item.payment_amount} грн.
-                    </span>
-                    <span className="item-wraper">Пердплата</span>
-                    <span className="item-wraper">{item.payment_status}</span>
-                  </li>
-                ))}
+                {order.payments !== null &&
+                  order.payments.map(item => (
+                    <li key={item.id}>
+                      <span className="item-wraper">
+                        {format(
+                          new Date(item.payment_date),
+                          'dd-MM-yyyy HH:mm'
+                        )}
+                      </span>
+                      <span className="item-wraper">{item.payment_method}</span>
+                      <span className="item-wraper">
+                        {item.payment_amount} грн.
+                      </span>
+                      <span className="item-wraper">Пердплата</span>
+                      <span className="item-wraper">{item.payment_status}</span>
+                    </li>
+                  ))}
               </ul>
             </div>
           </div>

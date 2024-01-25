@@ -10,7 +10,7 @@ import {
 } from './Dashboard.styled';
 import YearChart from 'components/Chart/YearChart';
 import Header from 'components/Header/Header';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import AnimatedCounter from 'components/AnimatedCounter/AnimatedCounter';
 
@@ -18,48 +18,40 @@ export default function Dashboard() {
   const [orders, setOrders] = useState([]);
   const [clients, setClients] = useState([]);
   const [selectedYear] = useState(new Date());
-console.log(clients);
-  // let ordersSum = 0;
-  // let allOrders = 0;
-  // orders.forEach(order => {
-  //   console.log(order);
-  //   ordersSum += Number(order.total_amount);
-  //   allOrders += 1;
-  // });
 
-  const actualSalesForYear = orders.reduce((data, order) => {
-    const orderYear = new Date(order.createdAt).getFullYear();
-    if (orderYear === selectedYear.getFullYear()) {
-      data.totalSales += Number(order.total_amount);
-      data.totalOrders += 1;
-    }
-    return data;
-  }, { totalSales: 0, totalOrders: 0 });
+  const actualSalesForYear = orders.reduce(
+    (data, order) => {
+      const orderYear = new Date(order.createdAt).getFullYear();
+      if (orderYear === selectedYear.getFullYear()) {
+        data.totalSales += Number(order.total_amount);
+        data.totalOrders += 1;
+      }
+      return data;
+    },
+    { totalSales: 0, totalOrders: 0 }
+  );
   const salesForYear = actualSalesForYear.totalSales;
   const numberOfOrdersForYear = actualSalesForYear.totalOrders;
-  console.log(actualSalesForYear);
-// const ordersSumFormated = ordersSum.toLocaleString('en-US', {
-//   minimumFractionDigits: 2,
-//   maximumFractionDigits: 2,
-// });
-//  console.log(ordersSumFormated); 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `${process.env.REACT_APP_HOST_BACK}/onlyorders`
-        );
-        setOrders(response.data);
-         const res = await axios.get(
-           `${process.env.REACT_APP_HOST_BACK}/clients`
-         );
-         setClients(res.data);
-      } catch (error) {
-        console.error('Ошибка при получении данных', error);
-      }
-    };
-    fetchData();
+
+  const fetchData = useCallback(async () => {
+    try {
+      const ordersResponse = await axios.get(
+        `${process.env.REACT_APP_HOST_BACK}/onlyorders`
+      );
+      setOrders(ordersResponse.data);
+      const clientsResponse = await axios.get(
+        `${process.env.REACT_APP_HOST_BACK}/clients`
+      );
+      setClients(clientsResponse.data);
+    } catch (error) {
+      console.error('Ошибка при получении данных', error);
+    }
   }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
   return (
     <>
       <Header
@@ -71,7 +63,10 @@ console.log(clients);
         <p>Показники поточного року</p>
         <CartWraper>
           <div className="cart-item order">
-            <AnimatedCounter value={numberOfOrdersForYear} text="Всього замовлень:" />
+            <AnimatedCounter
+              value={numberOfOrdersForYear}
+              text="Всього замовлень:"
+            />
           </div>
           <div className="cart-item client">
             <AnimatedCounter value={clients.length} text="Клієнтів:" />

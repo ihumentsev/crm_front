@@ -33,13 +33,15 @@ const ContentBox = styled.div`
   padding: 20px;
   margin-top: 20px;
   margin-left: 15px;
-  overflow-y: auto;
-  height: 100%;
+  
   & .list-header {
+    background: #f5f6f8;
+    position: sticky;
+    top: 64px;
     display: flex;
     justify-content: space-between;
     list-style: none;
-    padding: 0;
+    padding: 15px 0;
     margin: 0;
     min-width: 1120px;
     margin-bottom: 20px;

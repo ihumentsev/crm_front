@@ -33,9 +33,9 @@ const ContentBox = styled.div`
   padding: 20px;
   margin-top: 20px;
   margin-left: 15px;
-  overflow-y: auto;
-  height: 100%;
-  & .list-header {
+  /* overflow-y: auto; */
+  /* height: 100%; */
+  /* & .list-header {
     display: flex;
     justify-content: space-between;
     list-style: none;
@@ -43,13 +43,14 @@ const ContentBox = styled.div`
     margin: 0;
     min-width: 970px;
     margin-bottom: 20px;
-  }
+  } */
   & .item-header {
-    width: 150px;
-    padding: 0 10px;
-    display: flex;
-    align-items: center;
-    margin-right: 5px;
+    color: #334d6e;
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.13px;
     & .check-header {
       width: 16px;
       height: 16px;
@@ -63,5 +64,25 @@ const ContentBox = styled.div`
     min-width: 970px;
   }
 `;
+const ListItem = styled.ul`
+position: sticky;
+top: 64px;
+background: #f5f6f8;
+display: grid;
 
-export { BtnWraper, ContentBox };
+grid-template-columns: 110px 50px 150px 200px 150px 100px 140px 120px;;
+justify-items: left;
+justify-content: space-between;
+align-items: center;
+-webkit-box-pack: justify;
+list-style: none;
+
+padding: 15px 10px;
+margin: 0px;
+margin-bottom: 20px;
+    
+    
+
+`
+
+export { BtnWraper, ContentBox, ListItem};

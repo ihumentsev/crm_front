@@ -68,9 +68,10 @@ export default function ProductionItem({ products, ordersUpdate }) {
             <input className="check-item" type="checkbox" />
           </div>
 
-          <div className="column-wraper">#{products.id}</div>
           <div className="column-wraper">
-            {format(new Date(products.created_at), "dd-MM-yyyy")}
+            <p>#{products.id}</p></div>
+          <div className="column-wraper">
+            <p>{format(new Date(products.created_at), "dd-MM-yyyy")}</p>
           </div>
           
           <div className="column-wraper">
