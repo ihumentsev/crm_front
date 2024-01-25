@@ -8,24 +8,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 
 
-const products = [
-  {
-      "id": 9,
-      "product_name": "Плакат",
-      "quantity": 10,
-      "price_per_item": 25,
-      "total_price": 250,
-      "status_develop": "на виробництво"
-  },
-  {
-      "id": 10,
-      "product_name": "Наліпка",
-      "quantity": 20,
-      "price_per_item": 5,
-      "total_price": 100,
-      "status_develop": "на виробництво"
-  }
-]
+
 
 const orderInitial = {
   "owner": 1,
@@ -63,7 +46,7 @@ export default function OrderModal({ toggelModal }) {
   }, [order.products]);
 
   const sentOrder =async()=>{
-    await axios.post("http://localhost:4444/orders", order);
+    await axios.post(`${process.env.REACT_APP_HOST_BACK}/orders`, order);
     toggelModal();
   
   }

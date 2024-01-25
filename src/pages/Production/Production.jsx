@@ -15,7 +15,7 @@ console.log(developProducts);
 const fetchData = async () => {
   try {
     const response = await axios.get(
-      `https://back-crm-fb781da88f45.herokuapp.com/products`
+      `${process.env.REACT_APP_HOST_BACK}/products`
     );
     setDevelopProducts(response.data);
   } catch (error) {

@@ -17,7 +17,7 @@ import AnimatedCounter from 'components/AnimatedCounter/AnimatedCounter';
 export default function Dashboard() {
   const [orders, setOrders] = useState([]);
   const [clients, setClients] = useState([]);
-  const [selectedYear, setSelectedYear] = useState(new Date());
+  const [selectedYear] = useState(new Date());
 console.log(clients);
   // let ordersSum = 0;
   // let allOrders = 0;
@@ -47,11 +47,11 @@ console.log(clients);
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:4545/onlyorders'
+          `${process.env.REACT_APP_HOST_BACK}/onlyorders`
         );
         setOrders(response.data);
          const res = await axios.get(
-           'http://localhost:4545/clients'
+           `${process.env.REACT_APP_HOST_BACK}/clients`
          );
          setClients(res.data);
       } catch (error) {

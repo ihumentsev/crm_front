@@ -17,7 +17,7 @@ const YearChart = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:4545/onlyorders'
+         `${process.env.REACT_APP_HOST_BACK}/onlyorders`
         );
         setOrders(response.data);
       } catch (error) {

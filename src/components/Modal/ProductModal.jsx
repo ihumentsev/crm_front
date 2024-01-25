@@ -33,10 +33,9 @@ const initialState = {
 };
 export default function ProductModal({ visibleHandler, setProduct }) {
   const [productForm, setProductForm] = useState(initialState);
-  const [fileUrl, setFileUrl] = useState(null);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [uploadedFiles, setUploadedFiles] = useState([]);
-console.log(uploadedFiles);
+
   const hendlerForm = e => {
     setProductForm(prevForm => ({
       ...prevForm,
@@ -51,37 +50,6 @@ console.log(uploadedFiles);
     visibleHandler();
   };
 
-  const handleFileDrop = async e => {
-    e.preventDefault();
-    const file = e.dataTransfer.files[0];
-    // setSelectedFile(file);
-    if (file) {
-        const formData = new FormData();
-    formData.append('file', file);
-
-    try {
-        const response = await axios.post('http://localhost:4444/load', formData, {
-            onUploadProgress: (progressEvent) => {
-              const percentCompleted = Math.round(
-                (progressEvent.loaded * 100) / progressEvent.total
-              );
-              setUploadProgress(percentCompleted);
-            },
-          });
-
-      if (response.status === 200) {
-        setFileUrl(response.data);
-        setProductForm((prevForm) => ({
-            ...prevForm,
-            image_url: prevForm.image_url ? prevForm.image_url + ',' + response.data : response.data,
-          }));
-      }
-    } catch (error) {
-      console.error('Error uploading file:', error);
-    }
-    }
-  };
-
   const onDrop = useCallback(async (acceptedFiles) => {
     // Загрузка файлов на сервер
     const formData = new FormData();
@@ -90,7 +58,14 @@ console.log(uploadedFiles);
     });
 
     try {
-      const response = await axios.post('http://localhost:4444/load', formData);
+      const response = await axios.post('http://localhost:4545/load', formData, {
+        onUploadProgress: (progressEvent) => {
+          const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+          console.log(percentCompleted);
+          setUploadProgress(percentCompleted) 
+          // Здесь вы можете использовать значение percentCompleted, чтобы обновлять UI или как-то еще отображать прогресс
+        },
+      });
 
       if (response.status === 200) {
         // const { data } = response.data;

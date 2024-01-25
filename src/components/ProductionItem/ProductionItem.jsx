@@ -8,7 +8,7 @@ import {createProductOrder } from '../../helpers/createProductOrder'
 
 export default function ProductionItem({ products, ordersUpdate }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [status, setStatus] = useState(products.status_develop)
+  // const [status, setStatus] = useState(products.status_develop)
   const toggelOpenItem = () => {
     setIsOpen(!isOpen);
   };
@@ -148,7 +148,7 @@ export default function ProductionItem({ products, ordersUpdate }) {
             <div className="input-wraper">
               <label>Статус</label>
               <select value={products.status_develop}
-              onChange={(e)=> {setStatus(e.target.value); handlerStatus(e)}}>
+              onChange={(e)=> { handlerStatus(e)}}>
                 
                 <option value="на виробництво">На виробництво</option>
                 <option value="друкується">Друкується</option>

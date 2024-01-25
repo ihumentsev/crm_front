@@ -14,7 +14,7 @@ jobs:
       - name: Install, lint, build 🔧
         run: |
           npm install
-          # npm run lint:js
+          npm run lint:js
           REACT_APP_API_KEY=${{ secrets.REACT_APP_HOST_BACK }} npm run build
 
       - name: Deploy 🚀

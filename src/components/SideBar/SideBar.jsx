@@ -2,16 +2,7 @@
 import { NavWraper, PageLink, SideBarBox } from './SideBar.styled';
 
 export const SideBar = () => {
-  // const [filter, setFilter] = useState('all');
-  // const dispatch = useDispatch();
-
-  // const filterHandler = e => {
-  //   setFilter(e.target.value);
-  // };
-
-  // useEffect(() => {
-  //   dispatch(filterUser(filter));
-  // }, [dispatch, filter]);
+ 
 
   return (
     <SideBarBox>

@@ -13,12 +13,12 @@ import Header from 'components/Header/Header';
 export default function Orders() {
   const [orders, setOrders] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState("10");
-  const [selectedDateStart, setSelectedDateStart] = useState(new Date(new Date().getFullYear(),0, 1, 0, 0, 0, 0));
+  const [page, ] = useState(1);
+  const [pageSize, ] = useState("10");
+  const [selectedDateStart, ] = useState(new Date(new Date().getFullYear(),0, 1, 0, 0, 0, 0));
   const currentDate = new Date();
   currentDate.setDate(currentDate.getDate() + 1);
-  const [selectedDateEnd, setSelectedDateEnd] = useState(currentDate);
+  const [selectedDateEnd, ] = useState(currentDate);
   console.log(orders);
   const formattedStartDate = selectedDateStart.toISOString().split('T')[0];
   const formattedEndDate = selectedDateEnd.toISOString().split('T')[0];
@@ -30,7 +30,7 @@ export default function Orders() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4545/allorders?page=${page}&pageSize=${pageSize}&startDate=${formattedStartDate}&endDate=${formattedEndDate}`
+          `${process.env.REACT_APP_HOST_BACK}/allorders?page=${page}&pageSize=${pageSize}&startDate=${formattedStartDate}&endDate=${formattedEndDate}`
         );
         setOrders(response.data);
       } catch (error) {
