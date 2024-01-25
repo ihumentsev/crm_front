@@ -45,6 +45,8 @@ const ContentBox = styled.div`
     margin-bottom: 20px;
   } */
   & .item-header {
+    display: flex;
+    align-items: center;
     color: #334d6e;
     font-style: normal;
     font-size: 14px;

@@ -46,6 +46,7 @@ background: #f5f6f8;
     margin: 0;
     min-width: 1120px;
     margin-bottom: 20px;
+    z-index: 1;
   }
   & .item-header {
     width: 150px;
