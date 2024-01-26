@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/crm_front/static/css/main.660c791e.css",
-    "main.js": "/crm_front/static/js/main.29a99bb2.js",
-    "static/js/33.baff0df4.chunk.js": "/crm_front/static/js/33.baff0df4.chunk.js",
-    "static/js/11.92830da3.chunk.js": "/crm_front/static/js/11.92830da3.chunk.js",
-    "static/js/498.c678e694.chunk.js": "/crm_front/static/js/498.c678e694.chunk.js",
+    "main.css": "/crm_front/static/css/main.e1334283.css",
+    "main.js": "/crm_front/static/js/main.12c88bed.js",
+    "static/js/33.cfa5a722.chunk.js": "/crm_front/static/js/33.cfa5a722.chunk.js",
+    "static/js/11.0609255b.chunk.js": "/crm_front/static/js/11.0609255b.chunk.js",
+    "static/js/498.cf646209.chunk.js": "/crm_front/static/js/498.cf646209.chunk.js",
     "static/js/703.8d2407ab.chunk.js": "/crm_front/static/js/703.8d2407ab.chunk.js",
-    "static/js/198.6729cb2b.chunk.js": "/crm_front/static/js/198.6729cb2b.chunk.js",
-    "static/js/954.468f4194.chunk.js": "/crm_front/static/js/954.468f4194.chunk.js",
+    "static/js/513.9b631656.chunk.js": "/crm_front/static/js/513.9b631656.chunk.js",
+    "static/js/788.b8bd2471.chunk.js": "/crm_front/static/js/788.b8bd2471.chunk.js",
     "static/media/Poppins-Medium.ttf": "/crm_front/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
     "static/media/Montserrat-SemiBold.ttf": "/crm_front/static/media/Montserrat-SemiBold.62b8eee010e3957d425f.ttf",
     "static/media/Montserrat-Medium.ttf": "/crm_front/static/media/Montserrat-Medium.a281f04d4c8926e7dea1.ttf",
@@ -23,17 +23,17 @@
     "static/media/close.svg": "/crm_front/static/media/close.b25c30bffe22c72cf9de117f78789906.svg",
     "static/media/chat.svg": "/crm_front/static/media/chat.5cfe697fcfb5f11ad6e8db57aa5a69ef.svg",
     "static/media/Polygon.svg": "/crm_front/static/media/Polygon.aa9748770926bb9193a54868caae934b.svg",
-    "main.660c791e.css.map": "/crm_front/static/css/main.660c791e.css.map",
-    "main.29a99bb2.js.map": "/crm_front/static/js/main.29a99bb2.js.map",
-    "33.baff0df4.chunk.js.map": "/crm_front/static/js/33.baff0df4.chunk.js.map",
-    "11.92830da3.chunk.js.map": "/crm_front/static/js/11.92830da3.chunk.js.map",
-    "498.c678e694.chunk.js.map": "/crm_front/static/js/498.c678e694.chunk.js.map",
+    "main.e1334283.css.map": "/crm_front/static/css/main.e1334283.css.map",
+    "main.12c88bed.js.map": "/crm_front/static/js/main.12c88bed.js.map",
+    "33.cfa5a722.chunk.js.map": "/crm_front/static/js/33.cfa5a722.chunk.js.map",
+    "11.0609255b.chunk.js.map": "/crm_front/static/js/11.0609255b.chunk.js.map",
+    "498.cf646209.chunk.js.map": "/crm_front/static/js/498.cf646209.chunk.js.map",
     "703.8d2407ab.chunk.js.map": "/crm_front/static/js/703.8d2407ab.chunk.js.map",
-    "198.6729cb2b.chunk.js.map": "/crm_front/static/js/198.6729cb2b.chunk.js.map",
-    "954.468f4194.chunk.js.map": "/crm_front/static/js/954.468f4194.chunk.js.map"
+    "513.9b631656.chunk.js.map": "/crm_front/static/js/513.9b631656.chunk.js.map",
+    "788.b8bd2471.chunk.js.map": "/crm_front/static/js/788.b8bd2471.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.660c791e.css",
-    "static/js/main.29a99bb2.js"
+    "static/css/main.e1334283.css",
+    "static/js/main.12c88bed.js"
   ]
 }
