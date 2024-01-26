@@ -24,9 +24,6 @@ jobs:
         env:
           REACT_APP_HOST_BACK: ${{ secrets.REACT_APP_HOST_BACK }}
 
-      - name: Display environment variable 📊
-        run: echo $REACT_APP_HOST_BACK
-
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
