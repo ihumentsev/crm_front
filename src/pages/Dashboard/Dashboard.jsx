@@ -18,7 +18,7 @@ export default function Dashboard() {
   const [orders, setOrders] = useState([]);
   const [clients, setClients] = useState([]);
   const [selectedYear] = useState(new Date());
-
+console.log(process.env.REACT_APP_HOST_BACK);
   const actualSalesForYear = orders.reduce(
     (data, order) => {
       const orderYear = new Date(order.createdAt).getFullYear();
