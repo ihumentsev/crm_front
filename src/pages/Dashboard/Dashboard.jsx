@@ -36,11 +36,11 @@ console.log(process.env.REACT_APP_HOST_BACK);
   const fetchData = useCallback(async () => {
     try {
       const ordersResponse = await axios.get(
-        `${process.env.REACT_APP_HOST_BACK}/onlyorders`
+        `https://back-crm-fb781da88f45.herokuapp.com/onlyorders`
       );
       setOrders(ordersResponse.data);
       const clientsResponse = await axios.get(
-        `${process.env.REACT_APP_HOST_BACK}/clients`
+        `https://back-crm-fb781da88f45.herokuapp.com/clients`
       );
       setClients(clientsResponse.data);
     } catch (error) {

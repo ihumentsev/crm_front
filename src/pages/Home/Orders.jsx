@@ -30,7 +30,7 @@ export default function Orders() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_HOST_BACK}/allorders?page=${page}&pageSize=${pageSize}&startDate=${formattedStartDate}&endDate=${formattedEndDate}`
+          `https://back-crm-fb781da88f45.herokuapp.com/allorders?page=${page}&pageSize=${pageSize}&startDate=${formattedStartDate}&endDate=${formattedEndDate}`
         );
         setOrders(response.data);
       } catch (error) {

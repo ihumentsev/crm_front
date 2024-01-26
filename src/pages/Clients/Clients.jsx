@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import Header from 'components/Header/Header';
 import ClientItem from 'components/ClientItem/ClientItem';
-const host = process.env.REACT_APP_HOST_BACK;
+
 export default function Clients() {
   const [clients, setClients] = useState([]);
   
@@ -12,7 +12,7 @@ console.log(clients);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${host}/clients`);
+        const response = await axios.get(`https://back-crm-fb781da88f45.herokuapp.com/clients`);
         setClients(response.data);
       } catch (error) {
         console.error('Ошибка при получении данных', error);

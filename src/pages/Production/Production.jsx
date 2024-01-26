@@ -7,15 +7,15 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import ProductionItem from 'components/ProductionItem/ProductionItem';
 import Header from 'components/Header/Header';
-
+const host = process.env.REACT_APP_HOST_BACK;
 export default function Production() {
   const [developProducts, setDevelopProducts] = useState([]);
-  console.log(developProducts);
+  console.log("host", host);
 
   const fetchData = useCallback(async () => {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_HOST_BACK}/products`
+        `https://back-crm-fb781da88f45.herokuapp.com/products`
       );
       setDevelopProducts(response.data);
     } catch (error) {
