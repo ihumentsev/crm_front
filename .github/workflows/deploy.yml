@@ -2,7 +2,8 @@ name: Build and deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build-and-deploy:
@@ -20,6 +21,7 @@ jobs:
       - name: Build 🏗️
         run: |
           echo "REACT_APP_HOST_BACK=${{ secrets.REACT_APP_HOST_BACK }}" >> $GITHUB_ENV
+          echo "REACT_APP_HOST_BACK is set to $REACT_APP_HOST_BACK"
           npm run build
         env:
           REACT_APP_HOST_BACK: ${{ secrets.REACT_APP_HOST_BACK }}
