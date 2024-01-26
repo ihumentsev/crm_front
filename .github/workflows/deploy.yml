@@ -18,14 +18,17 @@ jobs:
         run: npm run lint:js
 
       - name: Build 🏗️
-        run: npm run build
-             REACT_APP_HOST_BACK=$REACT_APP_HOST_BACK npm run deploy
+        run: |
+          echo "REACT_APP_HOST_BACK=${{ secrets.REACT_APP_HOST_BACK }}" >> $GITHUB_ENV
+          npm run build
         env:
-             REACT_APP_HOST_BACK: ${{ secrets.REACT_APP_HOST_BACK }}    
+          REACT_APP_HOST_BACK: ${{ secrets.REACT_APP_HOST_BACK }}
+
+      - name: Display environment variable 📊
+        run: echo $REACT_APP_HOST_BACK
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-pages
           folder: build
-        
