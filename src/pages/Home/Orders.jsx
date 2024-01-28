@@ -9,7 +9,6 @@ import Header from 'components/Header/Header';
 import DatePicker from 'react-datepicker';
 import uk from "date-fns/locale/uk";
 import { format } from "date-fns";
-import WhiteBtn from 'components/Btn/WhiteBtn';
 import BlueBtn from 'components/Btn/BlueBtn';
 
 export default function Orders() {

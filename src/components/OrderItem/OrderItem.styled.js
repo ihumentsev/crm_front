@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import openIcon from '../../images/Polygon.svg';
-import copyIcon from '../../images/icons/copy-icon.svg';
 import { keyframes } from 'styled-components';
 
 const chargingAnimation = keyframes`
@@ -46,28 +45,25 @@ const ItemBox = styled.li`
     margin-right: 5px;
     padding: 0 10px;
     min-height: 40px;
-    
   }
   & .status {
     background-color: #2ed47a;
     border-radius: 5px;
   }
   & .column-wraper.in-production {
-  background-color: #2ed47a;
-}
+    background-color: #2ed47a;
+  }
 
-& .column-wraper.printing {
-  background: linear-gradient(90deg, #2ed47a, #ccc);
-  
-  
-}
+  & .column-wraper.printing {
+    background: linear-gradient(90deg, #2ed47a, #ccc);
+  }
 
-& .column-wraper.completed {
-  background-color: #ccc;
-}
-& .column-wraper.rejection {
-  background-color: #FF2626;
-}
+  & .column-wraper.completed {
+    background-color: #ccc;
+  }
+  & .column-wraper.rejection {
+    background-color: #ff2626;
+  }
 
   & .toggle-btn {
     width: 25px;
@@ -133,7 +129,7 @@ const OptionsBox = styled.div`
     padding: 0 20px;
     flex-direction: column;
     border-right: 1px solid #109cf1;
-    &:last-child{
+    &:last-child {
       border-right: none;
     }
   }
@@ -144,7 +140,7 @@ const OptionsBox = styled.div`
     /* justify-content: space-between; */
     margin-bottom: 10px;
     /* width: 250px; */
-    
+
     & p {
       width: 100px;
       color: var(--text-help-gray, #818e9b);
@@ -167,7 +163,7 @@ const OptionsBox = styled.div`
       letter-spacing: 0.13px;
       margin-left: 10px;
     }
-    & a{
+    & a {
       color: #109cf1;
       font-family: Poppins;
       font-size: 12px;
@@ -179,7 +175,6 @@ const OptionsBox = styled.div`
       border-bottom: solid 1px #d3d8dd;
       margin-left: 10px;
       cursor: pointer;
-      
     }
   }
 `;
@@ -235,7 +230,7 @@ const OrderBox = styled.div`
   & .head-list {
     list-style: none;
     display: grid;
-    grid-template-columns: 60px 150px 150px 200px  130px 110px 80px 100px 120px;
+    grid-template-columns: 60px 150px 150px 200px 130px 110px 80px 100px 120px;
     justify-items: left;
     justify-content: space-between;
     -webkit-box-pack: justify;
@@ -266,7 +261,7 @@ const OrderBox = styled.div`
     padding: 0;
     & li {
       display: grid;
-      grid-template-columns: 60px 150px 150px 200px  130px 110px 80px 100px  120px;
+      grid-template-columns: 60px 150px 150px 200px 130px 110px 80px 100px 120px;
       align-items: center;
       justify-items: left;
       justify-content: space-between;
@@ -279,7 +274,6 @@ const OrderBox = styled.div`
     & li:last-child {
       border-bottom: none;
     }
-
   }
   & .item-wraper {
     box-sizing: border-box;
@@ -301,46 +295,44 @@ const OrderBox = styled.div`
     display: flex;
     align-items: center;
     height: 30px;
-    
   }
   & .item-wraper.in-production {
-  background-color: #2ed47a;
-}
+    background-color: #2ed47a;
+  }
 
- & .item-wraper.printing {
-  background: linear-gradient(90deg, #2ed47a, #ccc);
-  animation: ${chargingAnimation} 5s ease-in-out infinite;
-  
-}
+  & .item-wraper.printing {
+    background: linear-gradient(90deg, #2ed47a, #ccc);
+    animation: ${chargingAnimation} 5s ease-in-out infinite;
+  }
 
- & .item-wraper.completed {
-  background-color: #ccc;
-}
- & .item-wraper.rejection {
-  background-color: #FF2626;
-}
-& .priority::after{
-  content: "";
-  position: absolute;
-  display: inline-block;
-  top: 5%;
-  right: 0;
-  width: 10px;
-  height: 10px;
-  /* background: #FF2626; */
-  border-radius: 50%;
-  border: solid 4px #fff
-}
+  & .item-wraper.completed {
+    background-color: #ccc;
+  }
+  & .item-wraper.rejection {
+    background-color: #ff2626;
+  }
+  & .priority::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    top: 5%;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    /* background: #FF2626; */
+    border-radius: 50%;
+    border: solid 4px #fff;
+  }
 
-& .priority.usual::after{
-  background: rgba(0, 255, 18, 0.30);
-}
-& .priority.high::after{
-  background: rgba(255, 38, 30, 0.50);
-}
-& .priority.urgently::after{
-  background: #FF2626;
-}
+  & .priority.usual::after {
+    background: rgba(0, 255, 18, 0.3);
+  }
+  & .priority.high::after {
+    background: rgba(255, 38, 30, 0.5);
+  }
+  & .priority.urgently::after {
+    background: #ff2626;
+  }
 `;
 const PayBox = styled.div`
   display: flex;
@@ -507,38 +499,35 @@ const ListItem = styled.ul`
     border-radius: 5px;
     width: 200px;
     text-align: center;
-    
   }
   & li.in-production {
-  background-color: #2ed47a;
-}
+    background-color: #2ed47a;
+  }
 
-& li.printing {
-  background: linear-gradient(90deg, #2ed47a, #ccc);
-  
-  
-}
+  & li.printing {
+    background: linear-gradient(90deg, #2ed47a, #ccc);
+  }
 
-& li.completed {
-  background-color: #ccc;
-}
-& li.rejection {
-  background-color: #FF2626;
-}
+  & li.completed {
+    background-color: #ccc;
+  }
+  & li.rejection {
+    background-color: #ff2626;
+  }
 `;
 
 const DefaultWraper = styled.div`
-display: flex;
-/* width: 300px; */
-background: #FF2626;
-border-radius: 4px;
-padding: 10px 15px;
-align-items: center;
-justify-content: center;
-color: #fff;
-    font-style: normal;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: normal;
-`
+  display: flex;
+  /* width: 300px; */
+  background: #ff2626;
+  border-radius: 4px;
+  padding: 10px 15px;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+`;
 export { ItemBox, PayBox, OrderBox, OptionsBox, ListItem, DefaultWraper };
