@@ -1,8 +1,8 @@
 import { BluButton } from './BlueBtn.styled';
 
-export default function BlueBtn({ text, handler }) {
+export default function BlueBtn({ text, handler, styleClass }) {
   return (
-    <BluButton  onClick={handler}>
+    <BluButton className={styleClass} onClick={handler}>
       {text}
     </BluButton>
   );

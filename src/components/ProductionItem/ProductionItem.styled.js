@@ -1,5 +1,6 @@
 import openIcon from '../../images/Polygon.svg';
 import printerIcon from '../../images/icons/printer.svg'
+import copyIcon from '../../images/icons/copy-icon.svg'
 import styled from 'styled-components';
 import { keyframes } from 'styled-components';
 
@@ -257,6 +258,18 @@ background-size: 25px;
 background-position: center;
 cursor: pointer;
 `
+
+const CopyBtn = styled.div`
+width: 25px;
+height: 25px;
+background-image: url(${copyIcon});
+background-repeat: no-repeat;
+background-size: 20px;
+background-position: center;
+margin-left: 10px;
+margin-top: 2px;
+cursor: pointer;
+`
 const OrderBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -445,4 +458,4 @@ const PayBox = styled.div`
     }
   }
 `;
-export { ItemBox, PayBox, OrderBox, OptionsBox, PrintBtn };
+export { ItemBox, PayBox, OrderBox, OptionsBox, PrintBtn, CopyBtn };
