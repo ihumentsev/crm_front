@@ -249,7 +249,12 @@ const OptionsBox = styled.div`
   }
   }
 `;
+
+
+
+
 const PrintBtn = styled.div`
+/* position: relative; */
 width: 25px;
 height: 25px;
 background-image: url(${printerIcon});
@@ -257,7 +262,10 @@ background-repeat: no-repeat;
 background-size: 25px;
 background-position: center;
 cursor: pointer;
+
 `
+
+
 
 const CopyBtn = styled.div`
 width: 25px;

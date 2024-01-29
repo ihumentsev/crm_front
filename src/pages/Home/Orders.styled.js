@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import next from '../../images/icons/next.svg'
 import prev from '../../images/icons/Prev.svg'
+import calendar from '../../images/icons/calendar.svg'
 const BtnWraper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -48,7 +49,7 @@ const ContentBox = styled.div`
     min-width: 1120px;
     margin-bottom: 20px; */
     display: grid;
-    grid-template-columns: 115px 120px 200px 100px 150px 220px 140px 120px;
+    grid-template-columns: 115px 120px 160px 100px 150px 220px 140px 120px;
 justify-items: left;
 justify-content: space-between;
 align-items: center;
@@ -58,6 +59,7 @@ list-style: none;
 padding: 15px 10px;
 margin: 0px;
 margin-bottom: 20px;
+z-index: 1;
   }
   & .item-header {
     width: 150px;
@@ -120,7 +122,7 @@ const WraperFiter = styled.div`
         background: #ffffff;
         border: 1px solid #e8e8e8;
         border-radius: 4px;
-        background-image: url(/calendar.svg);
+        background-image: url(${calendar});
         background-repeat: no-repeat;
         background-position: 150px center;
         font-family: "Open Sans";
@@ -130,9 +132,9 @@ const WraperFiter = styled.div`
         line-height: 22px;
         color: #2e2e2e;
         box-sizing: border-box;
-        /* @media screen and (min-width: 1000px) {
+        @media screen and (min-width: 1000px) {
           width: 182px;
-        } */
+        }
       }
       & label {
         font-family: "Open Sans";
@@ -196,24 +198,48 @@ const PaginationBox = styled.div`
     margin-right: 40px;
     width: 50px;
     height: 50px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50px;
     background-image: url(${prev});
     background-repeat: no-repeat;
     background-position: center center;
+    cursor: pointer;
+    filter: invert(31%) sepia(100%) saturate(1139%) hue-rotate(194deg) brightness(103%) contrast(91%);
     @media screen and (min-width: 1000px) {
       margin-right: 10px;
     }
+    
   }
+  & .prev:disabled{
+      filter: invert(81%) sepia(36%) saturate(0%) hue-rotate(124deg) brightness(82%) contrast(94%);
+    }
+  & .prev:hover{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    }  
   & .next {
     margin-left: 40px;
     width: 50px;
     height: 50px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
     background-image: url(${next});
     background-repeat: no-repeat;
     background-position: center center;
+    filter: invert(31%) sepia(100%) saturate(1139%) hue-rotate(194deg) brightness(103%) contrast(91%);
     @media screen and (min-width: 1000px) {
       margin-left: 0;
     }
+    
   }
+  & .next:disabled{
+      filter: invert(81%) sepia(36%) saturate(0%) hue-rotate(124deg) brightness(82%) contrast(94%);
+    }
+  & .next:hover{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    }
 `;
 const PaginationWraper = styled.div`
 display: flex;

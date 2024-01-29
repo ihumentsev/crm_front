@@ -24,7 +24,7 @@ const ItemBox = styled.li`
   list-style: none;
   justify-content: space-between;
   margin-bottom: 10px;
-  overflow: hidden;
+  /* overflow: hidden; */
   box-sizing: border-box;
   /* border: 2px solid #fff; */
   /* padding-bottom: 20px; */
@@ -79,7 +79,7 @@ const ItemBox = styled.li`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
     box-sizing: border-box;
   }
   & .active {
@@ -119,6 +119,14 @@ const ItemBox = styled.li`
     border: 2px solid #109cf1;
   }
 `;
+
+const HiddenBox = styled.div`
+display: none;
+margin-top: 30px;
+&.visible{
+  display: block
+}
+`
 const OptionsBox = styled.div`
   display: flex;
   justify-content: space-between;
@@ -294,7 +302,7 @@ const OrderBox = styled.div`
     /* text-align: center; */
     display: flex;
     align-items: center;
-    height: 30px;
+    height: 40px;
   }
   & .item-wraper.in-production {
     background-color: #2ed47a;
@@ -466,7 +474,7 @@ const PayBox = styled.div`
 const ListItem = styled.ul`
   display: grid;
   /* column-gap: 70px; */
-  grid-template-columns: 115px 120px 200px 100px 150px 220px 140px 120px;
+  grid-template-columns: 115px 120px 160px 100px 150px 220px 140px 120px;
   justify-items: left;
   justify-content: space-between;
 
@@ -493,6 +501,14 @@ const ListItem = styled.ul`
     /* margin-right: 5px; */
     padding: 0 10px;
     min-height: 40px;
+    & .btn-wraper{
+      position: relative;
+      /* z-index: 1; */
+          & :hover + .container-with-tail {
+  display: block; 
+}
+    }
+
   }
   & .status {
     /* background-color: #2ed47a; */
@@ -530,4 +546,4 @@ const DefaultWraper = styled.div`
   font-weight: 500;
   line-height: normal;
 `;
-export { ItemBox, PayBox, OrderBox, OptionsBox, ListItem, DefaultWraper };
+export { ItemBox, PayBox, OrderBox, OptionsBox, ListItem, DefaultWraper, HiddenBox };

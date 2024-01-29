@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {
   DefaultWraper,
+  HiddenBox,
   ItemBox,
   ListItem,
   OptionsBox,
@@ -11,20 +12,25 @@ import BlueBtn from 'components/Btn/BlueBtn';
 import WhiteBtn from 'components/Btn/WhiteBtn';
 import { format } from 'date-fns';
 import {
+  // ContainerWithTail,
   CopyBtn,
   PrintBtn,
 } from 'components/ProductionItem/ProductionItem.styled';
 import { createOrderDocument } from 'helpers/createOrderDocument';
 import axios from 'axios';
+import copyOrder from 'helpers/copyOrder';
+import ContainerWithTail from 'components/ContainerWithTail/ContainerWithTail';
 
-export default function OrderItem({ order }) {
+export default function OrderItem({ order, ordersUpdate }) {
   const [isOpen, setIsOpen] = useState(false);
+
   const toggelOpenItem = () => {
     setIsOpen(!isOpen);
   };
   const formatNumber = (number, length) => {
     return String(number).padStart(length, '0');
   };
+
   function getStatusClass(status) {
     switch (status) {
       case 'новий':
@@ -63,11 +69,31 @@ export default function OrderItem({ order }) {
 
   const handlerStatus = async e => {
     try {
-      await axios.patch(`https://back-crm-fb781da88f45.herokuapp.com/orders/${order.id}`, {
-        status: e.target.value,
-      });
+      await axios.patch(
+        `https://back-crm-fb781da88f45.herokuapp.com/orders/${order.id}`,
+        {
+          status: e.target.value,
+        }
+      );
+      ordersUpdate();
     } catch (error) {
       console.error('Ошибка при получении данных', error);
+    }
+  };
+
+  const copyHandler = async () => {
+    const copy = await copyOrder(order);
+    try {
+      console.log(copy);
+      const res = await axios.post(
+        // "https://back-crm-fb781da88f45.herokuapp.com/orders",
+        'http://localhost:4545/orders',
+        copy
+      );
+      console.log(res.data);
+      ordersUpdate();
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -96,19 +122,22 @@ export default function OrderItem({ order }) {
             </li>
             <li>{order.total_amount}</li>
             <li>
-              <PrintBtn
-                onClick={() => {
-                  createOrderDocument(order);
-                }}
-              ></PrintBtn>
-              <CopyBtn
-                onClick={() => {
-                  createOrderDocument(order);
-                }}
-              ></CopyBtn>
+              <div className="btn-wraper">
+                <PrintBtn
+                  onClick={() => {
+                    createOrderDocument(order);
+                  }}
+                ></PrintBtn>
+                  <ContainerWithTail text ="Друк документу" />
+              </div>
+              <div className="btn-wraper">
+              <CopyBtn onClick={copyHandler}></CopyBtn>
+              <ContainerWithTail text ="Копіювати замовлення" />
+              </div>
             </li>
           </ListItem>
         </div>
+        <HiddenBox className={isOpen ? 'visible' : ''}>
         <OptionsBox>
           <div className="wraper">
             <div className="input-wraper">
@@ -157,21 +186,23 @@ export default function OrderItem({ order }) {
             <div className="input-wraper">
               <p>Статус оплати:</p>
               <div>
-                {order.paymentStatus
+                {order.paymentStatus !== null &&
+                order.paymentStatus !== undefined
                   ? order.paymentStatus
                   : 'оплата не надходила'}
               </div>
             </div>
 
-            {order.products.map(prod => (
-              <div className="input-wraper" key={prod.id}>
-                <p>Файли:</p>
-                <a
-                  href={prod.image_url}
-                  target="blanck"
-                >{`Макет (${prod.product_name})`}</a>
-              </div>
-            ))}
+            {order.products &&
+              order.products.map(prod => (
+                <div className="input-wraper" key={prod.id}>
+                  <p>Файли:</p>
+                  <a
+                    href={prod.image_url}
+                    target="blank"
+                  >{`Макет (${prod.product_name})`}</a>
+                </div>
+              ))}
           </div>
           <div className="wraper">
             <div className="input-wraper">
@@ -201,28 +232,24 @@ export default function OrderItem({ order }) {
             <div className="input-wraper">
               <p>Метод доставки:</p>
               <div>
-                {' '}
                 {order.deliveryMethod ? order.deliveryMethod : 'Не визначено'}
               </div>
             </div>
             <div className="input-wraper">
               <p>Місто:</p>
               <div>
-                {' '}
                 {order.deliveryCity ? order.deliveryCity : 'Не визначено'}
               </div>
             </div>
             <div className="input-wraper">
               <p>Адреса доставки:</p>
               <div>
-                {' '}
                 {order.deliveryAdress ? order.deliveryAdress : 'Не визначено'}
               </div>
             </div>
             <div className="input-wraper">
               <p>Витрати:</p>
               <div>
-                {' '}
                 {order.deliveryCost ? order.deliveryCost : 'Не визначено'}
               </div>
             </div>
@@ -265,36 +292,39 @@ export default function OrderItem({ order }) {
           </div>
           <div>
             <ul className="item-list">
-              {order.products.map(product => (
-                <li key={product.id}>
-                  <span className="item-wraper">#{product.id}</span>
-                  <span className="item-wraper">{product.product_name}</span>
-                  <span className="item-wraper">{product.size}</span>
-                  <span className="item-wraper">{product.option}</span>
-                  <span
-                    className={`item-wraper status ${getStatusClass(
-                      product.status_develop
-                    )}`}
-                  >
-                    {product.status_develop}
-                  </span>
-                  <span
-                    className={`item-wraper priority ${getPriorityClass(
-                      product.priority
-                    )}`}
-                  >
-                    {product.priority === null ? 'звичайний' : product.priority}
-                  </span>
-                  <span className="item-wraper">{product.quantity} шт</span>
-                  <span className="item-wraper">
-                    {product.price_per_item.toFixed(2)} грн
-                  </span>
-                  {/* <span className="item-wraper">- </span> */}
-                  <span className="item-wraper">
-                    {product.total_price.toFixed(2)} грн
-                  </span>
-                </li>
-              ))}
+              {order.products &&
+                order.products.map(product => (
+                  <li key={product.id}>
+                    <span className="item-wraper">#{product.id}</span>
+                    <span className="item-wraper">{product.product_name}</span>
+                    <span className="item-wraper">{product.size}</span>
+                    <span className="item-wraper">{product.option}</span>
+                    <span
+                      className={`item-wraper status ${getStatusClass(
+                        product.status_develop
+                      )}`}
+                    >
+                      {product.status_develop}
+                    </span>
+                    <span
+                      className={`item-wraper priority ${getPriorityClass(
+                        product.priority
+                      )}`}
+                    >
+                      {product.priority === null
+                        ? 'звичайний'
+                        : product.priority}
+                    </span>
+                    <span className="item-wraper">{product.quantity} шт</span>
+                    <span className="item-wraper">
+                      {product.price_per_item.toFixed(2)} грн
+                    </span>
+
+                    <span className="item-wraper">
+                      {product.total_price.toFixed(2)} грн
+                    </span>
+                  </li>
+                ))}
             </ul>
           </div>
         </OrderBox>
@@ -369,6 +399,7 @@ export default function OrderItem({ order }) {
             </div>
           </div>
         </PayBox>
+        </HiddenBox>
       </ItemBox>
     </>
   );

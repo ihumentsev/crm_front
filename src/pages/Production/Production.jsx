@@ -52,7 +52,7 @@ export default function Production() {
           <li className="item-header">Статус</li>
           <li className="item-header">Замовник</li>
           <li className="item-header">Пріорітет</li>
-          <li className="item-header">Додатково</li>
+          <li className="item-header">Дії</li>
         </ul>
 
         <ul className="order-list">

@@ -1,6 +1,6 @@
 import OrderItem from 'components/OrderItem/OrderItem';
 import { ContentBox, PaginationBox, PaginationWraper, WraperFiter } from './Orders.styled';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import ModalPortal from 'components/Portal/ModalPortal';
@@ -11,6 +11,7 @@ import uk from "date-fns/locale/uk";
 import { format } from "date-fns";
 import BlueBtn from 'components/Btn/BlueBtn';
 
+
 export default function Orders() {
   const [orders, setOrders] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -20,28 +21,32 @@ export default function Orders() {
   const currentDate = new Date();
   currentDate.setDate(currentDate.getDate() + 1);
   const [selectedDateEnd, setSelectedDateEnd] = useState(currentDate);
-  console.log(orders);
+ 
   const formattedStartDate = selectedDateStart.toISOString().split('T')[0];
   const formattedEndDate = selectedDateEnd.toISOString().split('T')[0];
 
   const ToggelModal = () => {
     setShowModal(!showModal);
   };
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `https://back-crm-fb781da88f45.herokuapp.com/allorders?page=${page}&pageSize=${pageSize}&startDate=${formattedStartDate}&endDate=${formattedEndDate}`
-          // `http://localhost:4545/allorders?page=${page}&pageSize=${pageSize}&startDate=${formattedStartDate}&endDate=${formattedEndDate}`
-        );
-        setOrders(response.data);
-      } catch (error) {
-        console.error('Ошибка при получении данных', error);
-      }
-    };
 
-    fetchData();
+  const fetchData = useCallback(async () => {
+    try {
+      const response = await axios.get(
+        `https://back-crm-fb781da88f45.herokuapp.com/allorders?page=${page}&pageSize=${pageSize}&startDate=${formattedStartDate}&endDate=${formattedEndDate}`
+      );
+      setOrders(response.data);
+    } catch (error) {
+      console.error('Ошибка при получении данных', error);
+    }
   }, [pageSize, page, formattedStartDate, formattedEndDate]);
+
+  useEffect(() => {
+    fetchData();
+    const intervalId = setInterval(fetchData, 10 * 60 * 1000);
+    return () => clearInterval(intervalId);
+  }, [fetchData]);
+
+  
 
 
   const handleDateStartChange = (date) => {
@@ -110,18 +115,20 @@ export default function Orders() {
             </div>
 
             <div className="change-pagination">
-              <div
+              <button
+                disabled={page === 1}
                 className="prev"
                 onClick={() => {
                   setPage((prevForm) => (prevForm > 1 ? prevForm - 1 : 1));
                 }}
-              ></div>
-              <div
-                className="next"
+              ></button>
+              <button
+                disabled={orders.length < pageSize}
+                className="next "
                 onClick={() => {
                   setPage((prevForm) => prevForm + 1);
                 }}
-              ></div>
+              ></button>
             </div>
           </PaginationBox>
           </PaginationWraper>
@@ -138,12 +145,12 @@ export default function Orders() {
           <li className="item-header">Статус</li>
           {/* <li className="item-header">Продукція</li> */}
           <li className="item-header">Вартість</li>
-          <li className="item-header">Додатково</li>
+          <li className="item-header">Дії</li>
         </ul>
 
         <ul className="order-list">
           {orders.map(order => (
-            <OrderItem key={order.id} order={order} />
+            <OrderItem key={order.id} order={order} ordersUpdate={fetchData}/>
           ))}
         </ul>
       </ContentBox>
