@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/crm_front/static/css/main.e1334283.css",
-    "main.js": "/crm_front/static/js/main.57fbbeb0.js",
-    "static/js/972.29f7dd4e.chunk.js": "/crm_front/static/js/972.29f7dd4e.chunk.js",
+    "main.js": "/crm_front/static/js/main.fd5a1c8e.js",
+    "static/js/318.47ca04e5.chunk.js": "/crm_front/static/js/318.47ca04e5.chunk.js",
     "static/js/11.0609255b.chunk.js": "/crm_front/static/js/11.0609255b.chunk.js",
     "static/js/498.cf646209.chunk.js": "/crm_front/static/js/498.cf646209.chunk.js",
     "static/js/703.8d2407ab.chunk.js": "/crm_front/static/js/703.8d2407ab.chunk.js",
@@ -11,6 +11,7 @@
     "static/media/Poppins-Medium.ttf": "/crm_front/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
     "static/media/Montserrat-SemiBold.ttf": "/crm_front/static/media/Montserrat-SemiBold.62b8eee010e3957d425f.ttf",
     "static/media/Montserrat-Medium.ttf": "/crm_front/static/media/Montserrat-Medium.a281f04d4c8926e7dea1.ttf",
+    "static/media/calendar.svg": "/crm_front/static/media/calendar.614dfd26841c90e80816db3ff3bbaa67.svg",
     "static/media/money.svg": "/crm_front/static/media/money.07a6282156b39bbd57632d187203896f.svg",
     "static/media/copy-icon.svg": "/crm_front/static/media/copy-icon.e88a7cef263f912a5d9b17540ba61e97.svg",
     "static/media/dashboard.svg": "/crm_front/static/media/dashboard.6fd0f9a6edddc91a2269d47032164b47.svg",
@@ -27,8 +28,8 @@
     "static/media/next.svg": "/crm_front/static/media/next.fd28e37cb75e76a8e0ff09ce035d5c62.svg",
     "static/media/Polygon.svg": "/crm_front/static/media/Polygon.aa9748770926bb9193a54868caae934b.svg",
     "main.e1334283.css.map": "/crm_front/static/css/main.e1334283.css.map",
-    "main.57fbbeb0.js.map": "/crm_front/static/js/main.57fbbeb0.js.map",
-    "972.29f7dd4e.chunk.js.map": "/crm_front/static/js/972.29f7dd4e.chunk.js.map",
+    "main.fd5a1c8e.js.map": "/crm_front/static/js/main.fd5a1c8e.js.map",
+    "318.47ca04e5.chunk.js.map": "/crm_front/static/js/318.47ca04e5.chunk.js.map",
     "11.0609255b.chunk.js.map": "/crm_front/static/js/11.0609255b.chunk.js.map",
     "498.cf646209.chunk.js.map": "/crm_front/static/js/498.cf646209.chunk.js.map",
     "703.8d2407ab.chunk.js.map": "/crm_front/static/js/703.8d2407ab.chunk.js.map",
@@ -37,6 +38,6 @@
   },
   "entrypoints": [
     "static/css/main.e1334283.css",
-    "static/js/main.57fbbeb0.js"
+    "static/js/main.fd5a1c8e.js"
   ]
 }
