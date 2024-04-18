@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { ItemBox, ListItem, OptionsBox, OrderBox, PayBox } from './ClientItem.styled';
-import BlueBtn from 'components/Btn/BlueBtn';
+import {
+  ItemBox,
+  ListItem,
+  OptionsBox,
+} from './ClientItem.styled';
 import WhiteBtn from 'components/Btn/WhiteBtn';
 import { format } from 'date-fns';
-
 
 export default function ClientItem({ client }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,267 +20,117 @@ export default function ClientItem({ client }) {
         className={isOpen ? 'order-item active' : 'order-item'}
       >
         <div className={isOpen ? 'visible-box active' : 'visible-box '}>
-        
           <ListItem>
             <li>
-            <div className="toggle-btn" onClick={toggelOpenItem}></div>
+              <div className="toggle-btn" onClick={toggelOpenItem}></div>
               <input className="check-item" type="checkbox" />
             </li>
             <li>#{client.id}</li>
             <li>{`${client.surname} ${client.name} `}</li>
             <li>{client.email}</li>
-            <li>{client.company !== null ? client.company: "Данні відсутні"}</li>
-            <li>25</li>
+            <li>
+              {client.company !== null ? client.company : 'Данні відсутні'}
+            </li>
+            <li>{client.orders_count}</li>
             <li>{format(new Date(client.createdAt), 'dd-MM-yyyy')}</li>
             <li>Сідченко Яна</li>
-            
           </ListItem>
-          {/* <div className="column-wraper">
-            <div className="toggle-btn" onClick={toggelOpenItem}></div>
-            <input className="check-item" type="checkbox" />
-          </div>
-
-          <div className="column-wraper">
-            <p>#{client.id}</p>
-          </div>
-          <div className="column-wraper">
-            <p>{`${client.surname} ${client.name} `}</p>
-            
-          </div>
-          <div className="column-wraper">
-            <p>{client.email}</p>
-          </div>
-          <div className="column-wraper">
-            <p>{client.company !== null ? client.company: "Данні відсутні"}</p>
-          </div>
-          <div className="column-wraper">
-            <p>25</p>
-          </div>
-          <div className="column-wraper">
-            <p> {format(new Date(client.createdAt), 'dd-MM-yyyy')}</p>
-          </div>
-          <div className="column-wraper">
-            <p>Сідченко Яна</p>
-          </div> */}
-          
-          
         </div>
         <OptionsBox>
           <div className="wraper">
             <div className="input-wraper">
-              <p>№ замовлення:</p>
+              <p>Номер особового рахунка № </p>
               <div>#{client.id}</div>
             </div>
-            {/* <div className="input-wraper">
-              <p>Джерело:</p>
-              <div>{order.source}</div>
-            </div> */}
-            {/* <div className="input-wraper">
-              <p>Час створення:</p>
-              <div>{format(new Date(order.createdAt), 'dd-MM-yyyy')}</div>
-            </div> */}
             <div className="input-wraper">
-              <p>Менеджер:</p>
-              {/* <div>
-                {order.manager === null ? 'не визначено' : `${order.manager}`}
-              </div> */}
+              <p>ФІО:</p>
+              <div>
+                {`${client.surname} ${client.name} ${client.secondName}`}
+              </div>
             </div>
             <div className="input-wraper">
-              <label>Відповідальний</label>
-              <select>
-                {/* <option>{order.responsibility}</option> */}
-                <option>Шинкар Сергій</option>
-                <option>Кулінко Валерій</option>
-              </select>
+              <p>Телефон:</p>
+              <div>{client.phone}</div>
             </div>
             <div className="input-wraper">
-              <label>Статус</label>
-              <select>
-                {/* <option>{order.status}</option> */}
-                <option>На виробництві</option>
-                <option>Виготовленно</option>
-                <option>Відвантажено</option>
-                <option>Передано на доставку</option>
-              </select>
+              <p>Email:</p>
+              <div>{client.email}</div>
             </div>
             <div className="input-wraper">
-              <p>Статус оплати:</p>
-              {/* <div>{order.paymentStatus}</div> */}
+              <p>Дата реєстраціі:</p>
+              <div>{format(new Date(client.createdAt), 'dd-MM-yyyy')}</div>
             </div>
             <div className="input-wraper">
-              <p>Файли:</p>
-              <div>Додати</div>
+              <p>Веріфіковано:</p>
+              <div>{client.verification !== 'false' ? 'Так' : 'Ні'}</div>
             </div>
             <div className="input-wraper">
-              <p>Завдання:</p>
-              <div>Додати</div>
+              <p>Всього зробленно замовлень:</p>
+              <div>{client.orders_count ? client.orders_count : '0'}</div>
+            </div>
+            <div className="input-wraper">
+              <p>Сумма замовлень:</p>
+              <div>
+                {client.total_orders_amount
+                  ? `${client.total_orders_amount} грн`
+                  : '0'}
+              </div>
             </div>
           </div>
           <div className="wraper">
             <div className="input-wraper">
-              <p>Покупець:</p>
-              <div>Черенок Константин</div>
+              <p>Тип контрагента:</p>
+              <div>{client.employment ? client.employment : 'Немає даних'}</div>
             </div>
             <div className="input-wraper">
-              <p>Телефон покупця:</p>
-              <div>+15552341234</div>
+              <p>Статус покупця:</p>
+              <div>{client.buyerType ? client.buyerType : 'Немає даних'}</div>
             </div>
             <div className="input-wraper">
-              <p>E-mail покупця:</p>
-              <div>john.doe@mail.app</div>
+              <p>Дисконт %:</p>
+              <div>{client.discont ? client.discont : 'Не визначено'}</div>
             </div>
             <div className="input-wraper">
-              <p>Коментар:</p>
-              <div></div>
+              <p>Компанія:</p>
+              <div>{client.company ? client.company : 'Немає даних'}</div>
+            </div>
+            <div className="input-wraper">
+              <p>Код компаніі:</p>
+              <div>{client.codCompany ? client.codCompany : 'Немає даних'}</div>
+            </div>
+            <div className="input-wraper">
+              <p>Банк компаніі:</p>
+              <div>{client.bankName ? client.bankName : 'Немає даних'}</div>
+            </div>
+            <div className="input-wraper">
+              <p>Р/р компаніі:</p>
+              <div>
+                {client.currentAccount ? client.currentAccount : 'Немає даних'}
+              </div>
             </div>
             <div className="input-wraper">
               <WhiteBtn
-                text="Додати коментар"
+                text="Внести зміни"
                 handler={() => console.log('btn')}
               ></WhiteBtn>
             </div>
           </div>
           <div className="wraper">
             <div className="input-wraper">
-              <label>Доставка</label>
-              <select>
-                <option>Курьер </option>
-                <option>Нова Почта</option>
-                <option>Самовивіз</option>
-              </select>
-            </div>
-            <div className="input-wraper">
-              <p>Одержувач:</p>
-              <div> Игуменцев Андрій +15552341234</div>
-            </div>
-            <div className="input-wraper">
-              <p>Адреса доставки:</p>
-              <div> Kiev</div>
-            </div>
-            <div className="input-wraper">
-              <p>Витрати:</p>
-              <div> 150.00</div>
-            </div>
-            <div className="input-wraper">
-              <p>Дата доставки / відправки:</p>
-              <div>21.12.2021 14:44</div>
-            </div>
-            <div className="input-wraper">
-              <p>Трекінг код:</p>
-              <div>530005665555556</div>
+              <p>Адреса:</p>
+              <div> {client.adress}</div>
             </div>
 
             <div className="input-wraper">
-              <WhiteBtn text="Додати ТТН"></WhiteBtn>
+              <p>Тип відвантаження за замовчуванням:</p>
+              <div>Нова пошта</div>
+            </div>
+
+            <div className="input-wraper">
+              <WhiteBtn text="Додати адресу"></WhiteBtn>
             </div>
           </div>
         </OptionsBox>
-        <OrderBox>
-          <div className="section-title">
-            <div className="text-wraper">
-              <p>Продукція</p>
-            </div>
-            <div className="border-line"></div>
-            <div className="btn-wraper">
-              <BlueBtn text="Додати"></BlueBtn>
-            </div>
-          </div>
-          <div>
-            <ul className="head-list">
-              <li className="head-item">Акртикул</li>
-              <li className="head-item">Назва</li>
-              <li className="head-item">Коментар</li>
-              <li className="head-item">Властивості</li>
-              <li className="head-item">Тип відвантаження</li>
-              <li className="head-item">Статус</li>
-              <li className="head-item">Кількість</li>
-              <li className="head-item">Ціна закупівлі</li>
-              <li className="head-item">ціна товару</li>
-              <li className="head-item">Знижка</li>
-              <li className="head-item">Ціна продажу</li>
-            </ul>
-          </div>
-          <div>
-            <ul className="item-list">
-              {/* {order.products.map(product => (
-                <li key={product.id}>
-                  <span className="item-wraper">#{product.id}</span>
-                  <span className="item-wraper">{product.product_name}</span>
-                  <span className="item-wraper">-</span>
-                  <span className="item-wraper">-</span>
-                  <span className="item-wraper">Виробництво</span>
-                  <span className="item-wraper">{product.status_develop}</span>
-                  <span className="item-wraper">{product.quantity} шт</span>
-                  <span className="item-wraper">
-                    {product.price_per_item} грн
-                  </span>
-                  <span className="item-wraper">
-                    {product.price_per_item} грн
-                  </span>
-                  <span className="item-wraper">- </span>
-                  <span className="item-wraper">{product.total_price} грн</span>
-                </li>
-              ))} */}
-            </ul>
-          </div>
-        </OrderBox>
-        <PayBox>
-          <div>
-            <div className="section-title">
-              <div className="text-wraper">
-                <p>Оплати</p>
-              </div>
-              <div className="border-line"></div>
-              <div className="btn-wraper">
-                <BlueBtn text="Додати оплату"></BlueBtn>
-              </div>
-            </div>
-            <div>
-              <ul className="head-list">
-                <li className="head-item">Дата і час</li>
-                <li className="head-item">Тип платежу</li>
-                <li className="head-item">Сумма</li>
-                <li className="head-item">Коментар</li>
-                <li className="head-item">Статус</li>
-              </ul>
-            </div>
-            <div>
-              <ul className="item-list">
-                {/* {order.payments !== null && order.payments.map(item => (
-                  <li key={item.id}>
-                    <span className="item-wraper">
-                      {format(new Date(item.payment_date), 'dd-MM-yyyy HH:mm')}
-                    </span>
-                    <span className="item-wraper">{item.payment_method}</span>
-                    <span className="item-wraper">
-                      {item.payment_amount} грн.
-                    </span>
-                    <span className="item-wraper">Пердплата</span>
-                    <span className="item-wraper">{item.payment_status}</span>
-                  </li>
-                ))} */}
-              </ul>
-            </div>
-          </div>
-          <div className="pay-wraper">
-            <div className="text-wraper">
-              <p>
-                Сумма за товари:
-                {/* <span>{order.total_amount} грн.</span> */}
-              </p>
-              <p>
-                Знижка на замовлення:<span> -0.00 грн.</span>
-              </p>
-              <p>
-                Вартість доставки:<span>0.00 грн.</span>
-              </p>
-              <p>
-                Загальна вартість:
-                {/* <span>{order.total_amount} грн.</span> */}
-              </p>
-            </div>
-          </div>
-        </PayBox>
       </ItemBox>
     </>
   );

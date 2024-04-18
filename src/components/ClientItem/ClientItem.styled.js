@@ -98,6 +98,7 @@ const OptionsBox = styled.div`
   padding: 10px;
   & .wraper {
     display: flex;
+    
     width: 100%;
     padding: 0 20px;
     flex-direction: column;
@@ -109,6 +110,7 @@ const OptionsBox = styled.div`
   & .input-wraper {
     display: flex;
     flex-direction: row;
+    align-items: center;
     /* align-items: center; */
     /* justify-content: space-between; */
     margin-bottom: 10px;
@@ -125,6 +127,9 @@ const OptionsBox = styled.div`
     }
     & div {
       width: 160px;
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
       height: 20px;
       border-bottom: solid 1px #d3d8dd;
       font-size: 13px;
