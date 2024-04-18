@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/crm_front/static/css/main.e1334283.css",
-    "main.js": "/crm_front/static/js/main.fd5a1c8e.js",
+    "main.js": "/crm_front/static/js/main.289205d6.js",
     "static/js/318.47ca04e5.chunk.js": "/crm_front/static/js/318.47ca04e5.chunk.js",
     "static/js/11.0609255b.chunk.js": "/crm_front/static/js/11.0609255b.chunk.js",
     "static/js/498.cf646209.chunk.js": "/crm_front/static/js/498.cf646209.chunk.js",
@@ -28,7 +28,7 @@
     "static/media/next.svg": "/crm_front/static/media/next.fd28e37cb75e76a8e0ff09ce035d5c62.svg",
     "static/media/Polygon.svg": "/crm_front/static/media/Polygon.aa9748770926bb9193a54868caae934b.svg",
     "main.e1334283.css.map": "/crm_front/static/css/main.e1334283.css.map",
-    "main.fd5a1c8e.js.map": "/crm_front/static/js/main.fd5a1c8e.js.map",
+    "main.289205d6.js.map": "/crm_front/static/js/main.289205d6.js.map",
     "318.47ca04e5.chunk.js.map": "/crm_front/static/js/318.47ca04e5.chunk.js.map",
     "11.0609255b.chunk.js.map": "/crm_front/static/js/11.0609255b.chunk.js.map",
     "498.cf646209.chunk.js.map": "/crm_front/static/js/498.cf646209.chunk.js.map",
@@ -38,6 +38,6 @@
   },
   "entrypoints": [
     "static/css/main.e1334283.css",
-    "static/js/main.fd5a1c8e.js"
+    "static/js/main.289205d6.js"
   ]
 }
