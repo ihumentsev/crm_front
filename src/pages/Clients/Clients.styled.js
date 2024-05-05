@@ -45,6 +45,7 @@ const ContentBox = styled.div`
     margin-bottom: 20px;
   } */
   & .item-header {
+    position: relative;
     display: flex;
     align-items: center;
     color: #334d6e;
@@ -59,7 +60,47 @@ const ContentBox = styled.div`
       margin: 0;
       margin-left: 10px;
     }
+    & .filter-icon{
+      margin-left: 10px;
+      
+    }
+    & .dropdown{
+      width: 160px;
+      position: absolute;
+      top : 30px;
+      right: 0px;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      display: none;
+      &.active{
+        display: block;
+      }
+    }
+    
+    & .filter-icon{
+      fill: #C3D9F9;
+      &.active{
+        transform: rotate(180deg);
+        fill: #2173EF;
+      }
+    }
+    & .list {
+  padding: 0;
+  margin: 0;
+  list-style-position: inside;
+  & li{
+    padding: 2px;
+    cursor: pointer;
+  &:hover{
+    background-color: bisque;
   }
+  }
+}
+  }
+  & .filter{
+      cursor: pointer;
+    }
   & .order-list {
     padding: 0;
     margin: 0;

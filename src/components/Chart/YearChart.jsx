@@ -17,7 +17,8 @@ const YearChart = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-         `${process.env.REACT_APP_HOST_BACK}/onlyorders`
+        //  `${process.env.REACT_APP_HOST_BACK}/onlyorders`
+        `https://back-crm-fb781da88f45.herokuapp.com/onlyorders`
         );
         setOrders(response.data);
       } catch (error) {

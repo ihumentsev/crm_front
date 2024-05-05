@@ -33,7 +33,7 @@ export default function ClientItem({ client }) {
             </li>
             <li>{client.orders_count}</li>
             <li>{format(new Date(client.createdAt), 'dd-MM-yyyy')}</li>
-            <li>Сідченко Яна</li>
+            <li>{client.manager ? client.manager : "Не назначено"}</li>
           </ListItem>
         </div>
         <OptionsBox>
@@ -45,7 +45,7 @@ export default function ClientItem({ client }) {
             <div className="input-wraper">
               <p>ФІО:</p>
               <div>
-                {`${client.surname} ${client.name} ${client.secondName}`}
+                {`${client.surname} ${client.name} `}
               </div>
             </div>
             <div className="input-wraper">
