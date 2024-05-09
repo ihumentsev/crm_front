@@ -10,7 +10,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Router basename="/crm_front">
+    <Router >
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <App />
