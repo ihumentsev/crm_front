@@ -15,7 +15,7 @@ export default function Production() {
   const fetchData = useCallback(async () => {
     try {
       const response = await axios.get(
-        `https://back-crm-fb781da88f45.herokuapp.com/products`
+        `https://server.navchora.com.ua/products`
       );
       setDevelopProducts(response.data);
     } catch (error) {

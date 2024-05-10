@@ -18,7 +18,7 @@ export default function ProductionItem({ products, ordersUpdate }) {
 
   const handlerStatus = async (e) => {
     try {
-       await axios.put(`https://back-crm-fb781da88f45.herokuapp.com/products/${products.id}/status`,{status: e.target.value});
+       await axios.put(`https://server.navchora.com.ua/products/${products.id}/status`,{status: e.target.value});
       
     } catch (error) {
       console.error('Ошибка при получении данных', error);

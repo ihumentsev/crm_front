@@ -32,7 +32,7 @@ export default function Orders() {
   const fetchData = useCallback(async () => {
     try {
       const response = await axios.get(
-        `https://back-crm-fb781da88f45.herokuapp.com/allorders?page=${page}&pageSize=${pageSize}&startDate=${formattedStartDate}&endDate=${formattedEndDate}`
+        `https://server.navchora.com.ua/allorders?page=${page}&pageSize=${pageSize}&startDate=${formattedStartDate}&endDate=${formattedEndDate}`
       );
       setOrders(response.data);
     } catch (error) {

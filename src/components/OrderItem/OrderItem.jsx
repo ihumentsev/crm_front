@@ -70,7 +70,7 @@ export default function OrderItem({ order, ordersUpdate }) {
   const handlerStatus = async e => {
     try {
       await axios.patch(
-        `https://back-crm-fb781da88f45.herokuapp.com/orders/${order.id}`,
+        `https://server.navchora.com.ua/orders/${order.id}`,
         // `http://localhost:4545/orders/${order.id}`,
         {
           status: e.target.value,
@@ -88,7 +88,7 @@ export default function OrderItem({ order, ordersUpdate }) {
       console.log(copy);
       const res = await axios.post(
         // "https://back-crm-fb781da88f45.herokuapp.com/orders",
-        'http://localhost:4545/orders',
+        'https://server.navchora.com.ua/orders',
         copy
       );
       console.log(res.data);
