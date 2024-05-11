@@ -36,11 +36,11 @@ console.log(process.env.REACT_APP_HOST_BACK);
   const fetchData = useCallback(async () => {
     try {
       const ordersResponse = await axios.get(
-        `https://back-crm-fb781da88f45.herokuapp.com/onlyorders`
+        `https://server.navchora.com.ua/onlyorders`
       );
       setOrders(ordersResponse.data);
       const clientsResponse = await axios.get(
-        `https://back-crm-fb781da88f45.herokuapp.com/clients`
+        `https://server.navchora.com.ua/clients`
       );
       setClients(clientsResponse.data);
     } catch (error) {
